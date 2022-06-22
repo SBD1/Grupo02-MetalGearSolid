@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=metalgear
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./sql/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+      - ./sql/dml.sql:/docker-entrypoint-initdb.d/dml.sql
+    networks: 
+      - spider_web
+
+  python:
+    build: .
+    restart: always
+    depends_on:
+      - postgres
+    networks:
+      - spider_web
+    volumes:
+      - ./src:/MetalGearSolid
+networks:
+  spider_web:
+
+volumes:
+  db:
