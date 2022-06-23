@@ -12,8 +12,7 @@ services:
       - '5432:5432'
     volumes:
       - db:/var/lib/postgresql/data
-      - ./sql/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
-      - ./sql/dml.sql:/docker-entrypoint-initdb.d/dml.sql
+      - ./sql:/docker-entrypoint-initdb.d
     networks: 
       - spider_web
 

@@ -1,8 +1,13 @@
-FROM python:3.9-alpine
+FROM python:3.9-slim
+
+ENV PYTHONUNBUFFERED 1
+
 WORKDIR /MetalGearSolid
-COPY src/* .
+
 COPY requirements.txt .
-RUN apk add --no-cache --update py3-pip python3-dev libpq-dev build-base bash
+
 RUN pip install -r requirements.txt
-RUN rm requirements.txt
+
+COPY src/* .
+
 ENTRYPOINT ["python3","main.py"]
