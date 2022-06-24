@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY src/* .
 
-ENTRYPOINT ["python3","main.py"]
+ENTRYPOINT ["tail","-f","/dev/null"]
