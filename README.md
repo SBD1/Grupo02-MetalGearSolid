@@ -9,3 +9,6 @@ Lucas Henrique Lima de Queiroz | 190091703 | lucasqueiroz23
 Mateus Nascimento Nobrega | 160014981 | mateusnr
 Rafael Berto Pereira | 180108344 | RafaelBP02
 
+## Apresentação
+
+O vídeo da apresentação pode ser encontrado na pasta `documentos/Apresentacoes`
