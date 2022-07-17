@@ -1,0 +1,11 @@
+Título: Skull Face
+Descrição: Skull Face has occupied the secret Soviet weapon design bureau OKB Zero, and advanced his plan to its final phase. Prevent the combat deployment of the upright bipedal weapon Sahelanthropus, and take vengeance on Skull Face.
+Terreno: Deserto.
+Objetivos:
+	Principais:
+		Entre em contato com Skull Face
+		Obtenha a fita cassete em OKB Zero
+	Secundários:
+		Obtenha os diamantes brutos.
+		Obtenha material processado em OKB Zero.
+		Obtenha os containers com materiais brutos.

@@ -1,0 +1,9 @@
+Título: Língua Franca
+Descrição:Tail the Afrikaans interpreter working with the interrogator at Kiziba Camp, and rescue the British prisoner known as the Viscount.
+Terreno: África central.
+Objetivos:
+	Principais:
+		Extraia o Intérprete Africano
+		Extraia o Visconde
+	Secundários:
+		Extraia 3 prisioneiros no campo de Kiziba

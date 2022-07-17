@@ -1,0 +1,9 @@
+Título: The White Mamba
+Descrição: Eliminate the militants at Masa Village who have been pillaging nearby settlements. They are said to all be children. Extract their commander, the "White Mamba", and the group will fall apart.
+Terreno: África central.
+Objetivos:
+	Principais:
+		Extraia o White Mamba
+	Secundários:
+		Obtenha os diamantes brutos.
+		Extraia o prisioneiro mantido no vilarejo Masa

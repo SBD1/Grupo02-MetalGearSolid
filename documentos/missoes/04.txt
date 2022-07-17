@@ -1,0 +1,11 @@
+Título: Comando e controle de guerra.
+Descrição: Destroy the Soviet comms equipment to prevent reinforcements being sent between outposts.
+Terreno: Deserto.
+Objetivos:
+	Principais:
+		Encontre o equipamento de comunicação.
+		Destrua o equipamento no posto de comunicação.
+	Secundários:
+		Extraia os 2 prisioneiros mantidos no vilarejo Wialo.
+		Extraia os contêineres de materiais brutos.
+		Obtenha os diamantes brutos escondidos.

@@ -1,0 +1,10 @@
+Título: Caminho do herói.
+Descrição: Eliminate the Spetsnaz detachment commander secretly involved in the scorched earth operation in Afghanistan. The target and his recon unit have occupied Shago Village and are ready to meet an assault.
+Terreno: Deserto.
+Objetivos:
+	Principais:
+		Interrogue o comandante spetsnaz
+		Elimine o comandante ou extraia-o para a base mãe.
+	Secundários:
+		Obtenha as plantas medicinais perto do quartel
+		Obtenha os materiais processados do quartel

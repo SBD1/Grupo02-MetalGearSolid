@@ -1,0 +1,12 @@
+Título: Membros fantasmas.
+Descrição: Rescue your old partner, Kazuhira Miller. He has been captured by the Soviets and is being interrogated at Ghwandai Town.
+Terreno: Deserto.
+Objetivos:
+	Principais:
+    Encontre Kazuhira Miller
+    Extraia Kazuhira Miller
+	Secundários:
+    Extraia o comandante do quartel Wakh Sind
+    Pegue os diamantes escondidos.
+    Extraia o motorista do caminhão.
+

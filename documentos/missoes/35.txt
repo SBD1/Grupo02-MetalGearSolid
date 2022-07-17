@@ -1,0 +1,9 @@
+Título: Legado amaldiçoado
+Descrição: Recover the two containers loaded with Code Talker's research materials. The containers are hidden in the jungle, and XOF choppers are en route to collect them.
+Terreno: África central.
+Objetivos:
+	Principais:
+		Extraia os 2 containers com a pesquisa do code talker.
+	Secundários:
+		Obtenha os diamantes brutos.
+		Extraia o comandante da força de segurança.

@@ -1,0 +1,7 @@
+Título: O homem que vendeu o mundo
+Descrição: Escape the hospital.
+Objetivos:
+	Principais:
+		Escape do hospital
+	Secundários:
+		Elimine 6 soldados na entrada do hospital. 

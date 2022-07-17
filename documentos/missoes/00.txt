@@ -1,0 +1,7 @@
+Título: Prólogo, Despertar.
+Descrição: Escape the hospital.
+Terreno: Urbano
+Objetivos:
+	Principais:
+    Escape do hospital.
+	Secundários:

@@ -1,0 +1,10 @@
+Título: Seguindo a trilha
+Descrição: The commander of a PF, known as the Major, has been spreading a rumor about selling nuclear weapons. Tail his subordinate, and eliminate the Major.
+Terreno: África central.
+Objetivos:
+	Principais:
+		Neutralize o subordinado do comandante das Forças Privadas
+		Neutralize o comandante
+	Secundários:
+		Extraia o prisioneiro mantido em Munoko ya Nioka
+
