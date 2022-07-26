@@ -32,6 +32,98 @@ CREATE TABLE basemae (
 );
 
 
+-- public.estatistica definition
+
+-- Drop table
+
+-- DROP TABLE estatistica;
+
+CREATE TABLE estatistica (
+	idestatistica int4 NOT NULL,
+	nummovimentos int4 NULL,
+	numheadshots int4 NULL,
+	numabates int4 NULL,
+	numnocautes int4 NULL,
+	codinome_nome varchar(30) NULL,
+	codinome_descricao varchar(300) NULL,
+	codinome_requisito varchar(200) NULL,
+	CONSTRAINT estatistica_pk PRIMARY KEY (idestatistica)
+);
+
+
+-- public.item definition
+
+-- Drop table
+
+-- DROP TABLE item;
+
+CREATE TABLE item (
+	iditem int4 NOT NULL,
+	nome bpchar(30) NULL,
+	descricao varchar(100) NULL,
+	dano int4 NULL,
+	CONSTRAINT item_pk PRIMARY KEY (iditem)
+);
+
+
+-- public.mapa definition
+
+-- Drop table
+
+-- DROP TABLE mapa;
+
+CREATE TABLE mapa (
+	idmapa int4 NOT NULL,
+	tamanho int4 NULL,
+	nome bpchar(20) NULL,
+	CONSTRAINT mapa_pk PRIMARY KEY (idmapa)
+);
+
+
+-- public.mapaposicionarecurso definition
+
+-- Drop table
+
+-- DROP TABLE mapaposicionarecurso;
+
+CREATE TABLE mapaposicionarecurso (
+	idmapa int4 NULL,
+	idrecurso int4 NULL,
+	pontox int4 NULL,
+	pontoy int4 NULL,
+	quantidade int4 NULL
+);
+
+
+-- public.mapatemmapa definition
+
+-- Drop table
+
+-- DROP TABLE mapatemmapa;
+
+CREATE TABLE mapatemmapa (
+	idmapadono int4 NULL,
+	idmapa int4 NULL,
+	pontox int4 NULL,
+	pontoy int4 NULL
+);
+
+
+-- public.missao definition
+
+-- Drop table
+
+-- DROP TABLE missao;
+
+CREATE TABLE missao (
+	idmissao int4 NOT NULL,
+	titulo bpchar(50) NULL,
+	descricao varchar(500) NULL,
+	textofinal text NULL,
+	CONSTRAINT missao_pk PRIMARY KEY (idmissao)
+);
+
+
 -- public.nivelnpc definition
 
 -- Drop table
@@ -92,6 +184,24 @@ CREATE TABLE npcusaitem (
 );
 
 
+-- public.objetivo definition
+
+-- Drop table
+
+-- DROP TABLE objetivo;
+
+CREATE TABLE objetivo (
+	idobjetivo int4 NOT NULL,
+	idmissao int4 NULL,
+	descricao varchar(200) NULL,
+	cumprido bool NULL,
+	tipo bool NULL,
+	pontox int4 NULL,
+	pontoy int4 NULL,
+	CONSTRAINT objetivo_pk PRIMARY KEY (idobjetivo)
+);
+
+
 -- public.player definition
 
 -- Drop table
@@ -119,6 +229,24 @@ CREATE TABLE playercumpremissao (
 );
 
 
+-- public.projeto definition
+
+-- Drop table
+
+-- DROP TABLE projeto;
+
+CREATE TABLE projeto (
+	idprojeto int4 NOT NULL,
+	idarma int4 NULL,
+	pontox int4 NULL,
+	pontoy int4 NULL,
+	idmapa int4 NULL,
+	iduniforme int4 NULL,
+	iditem int4 NULL,
+	CONSTRAINT projeto_pk PRIMARY KEY (idprojeto)
+);
+
+
 -- public.recurso definition
 
 -- Drop table
@@ -132,6 +260,46 @@ CREATE TABLE recurso (
 	qtdprocessado int4 NULL,
 	tipo bpchar(30) NULL,
 	CONSTRAINT recurso_pk PRIMARY KEY (idrecurso)
+);
+
+
+-- public.requisito definition
+
+-- Drop table
+
+-- DROP TABLE requisito;
+
+CREATE TABLE requisito (
+	idrequisito int4 NOT NULL,
+	tipo bool NULL,
+	idprojeto int4 NULL,
+	CONSTRAINT requisito_pk PRIMARY KEY (idrequisito)
+);
+
+
+-- public.requisitoconsomerecurso definition
+
+-- Drop table
+
+-- DROP TABLE requisitoconsomerecurso;
+
+CREATE TABLE requisitoconsomerecurso (
+	idrecurso int4 NULL,
+	idrequisito int4 NULL,
+	quantidade int4 NULL
+);
+
+
+-- public.requisitodependeunidade definition
+
+-- Drop table
+
+-- DROP TABLE requisitodependeunidade;
+
+CREATE TABLE requisitodependeunidade (
+	idunidade int4 NULL,
+	idrequisito varchar NULL,
+	nivelunidade int4 NULL
 );
 
 
@@ -189,184 +357,4 @@ CREATE TABLE uniformecamuflaterreno (
 	idterreno int4 NULL,
 	iduniforme int4 NULL,
 	taxacamuflagem int4 NULL
-);
-
-
--- public.item definition
-
--- Drop table
-
--- DROP TABLE item;
-
-CREATE TABLE item (
-	iditem int4 NOT NULL,
-	nome bpchar(30) NULL,
-	descricao varchar(100) NULL,
-	dano int4 NULL,
-	CONSTRAINT item_pk PRIMARY KEY (iditem)
-);
-
-
--- public.requisitoconsomerecurso definition
-
--- Drop table
-
--- DROP TABLE requisitoconsomerecurso;
-
-CREATE TABLE requisitoconsomerecurso (
-	idrecurso int4 NULL,
-	idrequisito int4 NULL,
-	quantidade int4 NULL
-);
-
-
--- public.mapaposicionarecurso definition
-
--- Drop table
-
--- DROP TABLE mapaposicionarecurso;
-
-CREATE TABLE mapaposicionarecurso (
-	idmapa int4 NULL,
-	idrecurso int4 NULL,
-	pontox int4 NULL,
-	pontoy int4 NULL,
-	quantidade int4 NULL
-);
-
-
--- public.requisitodependeunidade definition
-
--- Drop table
-
--- DROP TABLE requisitodependeunidade;
-
-CREATE TABLE requisitodependeunidade (
-	idunidade int4 NULL,
-	idrequisito varchar NULL,
-	nivelunidade int4 NULL
-);
-
-
--- public.projeto definition
-
--- Drop table
-
--- DROP TABLE projeto;
-
-CREATE TABLE projeto (
-	idprojeto int4 NOT NULL,
-	idarma int4 NULL,
-	pontox int4 NULL,
-	pontoy int4 NULL,
-	idmapa int4 NULL,
-	iduniforme int4 NULL,
-	iditem int4 NULL,
-	CONSTRAINT projeto_pk PRIMARY KEY (idprojeto)
-);
-
-
--- public.requisito definition
-
--- Drop table
-
--- DROP TABLE requisito;
-
-CREATE TABLE requisito (
-	idrequisito int4 NOT NULL,
-	tipo bool NULL,
-	idprojeto int4 NULL,
-	CONSTRAINT requisito_pk PRIMARY KEY (idrequisito)
-);
-
-
--- public.mapa definition
-
--- Drop table
-
--- DROP TABLE mapa;
-
-CREATE TABLE mapa (
-	idmapa int4 NOT NULL,
-	tamanho int4 NULL,
-	nome bpchar(20) NULL,
-	CONSTRAINT mapa_pk PRIMARY KEY (idmapa)
-);
-
-
--- public.mapatemmapa definition
-
--- Drop table
-
--- DROP TABLE mapatemmapa;
-
-CREATE TABLE mapatemmapa (
-	idmapadono int4 NULL,
-	idmapa int4 NULL,
-	pontox int4 NULL,
-	pontoy int4 NULL
-);
-
-
--- public.missao definition
-
--- Drop table
-
--- DROP TABLE missao;
-
-CREATE TABLE missao (
-	idmissao int4 NOT NULL,
-	titulo bpchar(50) NULL,
-	descricao varchar(500) NULL,
-	textofinal text NULL,
-	CONSTRAINT missao_pk PRIMARY KEY (idmissao)
-);
-
-
--- public.objetivo definition
-
--- Drop table
-
--- DROP TABLE objetivo;
-
-CREATE TABLE objetivo (
-	idobjetivo int4 NOT NULL,
-	idmissao int4 NULL,
-	descricao varchar(200) NULL,
-	cumprido bool NULL,
-	tipo bool NULL,
-	pontox int4 NULL,
-	pontoy int4 NULL,
-	CONSTRAINT objetivo_pk PRIMARY KEY (idobjetivo)
-);
-
-
--- public.estatistica definition
-
--- Drop table
-
--- DROP TABLE estatistica;
-
-CREATE TABLE estatistica (
-	idestatistica int4 NOT NULL,
-	nummovimentos int4 NULL,
-	numheadshots int4 NULL,
-	numabates int4 NULL,
-	numnocautes int4 NULL,
-	codinome varchar(30) NULL,
-	CONSTRAINT estatistica_pk PRIMARY KEY (idestatistica)
-);
-
-
--- public.codinome definition
-
--- Drop table
-
--- DROP TABLE codinome;
-
-CREATE TABLE codinome (
-	codinome varchar(30) NOT NULL,
-	descricao varchar(300) NULL,
-	requisito varchar(200) NULL,
-	CONSTRAINT codinome_pk PRIMARY KEY (codinome)
 );
