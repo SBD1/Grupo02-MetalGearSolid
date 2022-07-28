@@ -1,4 +1,14 @@
 -- Incluir os tipos ENUM.
+CREATE TYPE tipoArma AS ENUM ('PRIMARIA','SECUNDARIA');
+CREATE TYPE tipoObjetivo AS ENUM ('PRINCIPAL','SECUNDARIO');
+CREATE TYPE tipoRequisito AS ENUM ('DESENVOLVIMENTO','USO');
+
+CREATE TYPE tipoUnidade AS ENUM ('COMBATE','MEDICA','INTELIGENCIA','DESENVBASE','SUPORTE');
+  -- PMB (Produto Militar Bruto)
+CREATE TYPE tipoRecurso AS ENUM (
+  'METALPRECIOSO', 'METALSECUNDARIO', 'METALPRIMARIO', 
+  'PMB', 'PLANTA', -- PMB e PLANTA foram pensados como sendo materiais processados apenas.
+  'COMBUSTIVEL','MATERIALBIOLOGICO');
 
 -- Tabelas independentes: Arma, BaseMae, codinome, Uniforme, Missao, Item, Terreno.
 CREATE TABLE IF NOT EXISTS Arma (
@@ -11,7 +21,7 @@ CREATE TABLE IF NOT EXISTS Arma (
 	tamPente int NOT NULL,
 	penetracao int NOT NULL,
   municaoLetal Boolean NOT NULL,
-	tipo varchar(50) NOT NULL
+	tipo tipoArma NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS BaseMae (
@@ -92,7 +102,7 @@ CREATE TABLE IF NOT EXISTS Unidade (
 	nivel int NOT NULL,
 	qtdSoldados int NOT NULL,
 	maxSoldados int NOT NULL,
-	tipo varchar(30) NOT NULL,
+	tipo tipoUnidade NOT NULL,
 
   CONSTRAINT FK_baseMae_Unidade FOREIGN KEY(idBaseMae) REFERENCES BaseMae(idBaseMae)
 );
@@ -119,7 +129,7 @@ CREATE TABLE IF NOT EXISTS Recurso (
 	idBasemae int NOT NULL,
 	qtdBruto int NOT NULL,
 	qtdProcessado int NOT NULL,
-	tipo varchar(30) NOT NULL,
+	tipo tipoRecurso NOT NULL,
 
   CONSTRAINT FK_baseMae_recurso FOREIGN KEY(idBaseMae) REFERENCES BaseMae(idBaseMae)
 );
@@ -127,7 +137,7 @@ CREATE TABLE IF NOT EXISTS Recurso (
 CREATE TABLE IF NOT EXISTS Requisito (
 	idRequisito SERIAL PRIMARY KEY,
 	idProjeto int NOT NULL,
-	tipo boolean NOT NULL,
+	tipo tipoRequisito NOT NULL,
 
   CONSTRAINT FK_projeto_requisito FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto)
 );
@@ -142,7 +152,29 @@ CREATE TABLE IF NOT EXISTS Player (
   CONSTRAINT FK_baseMae_player FOREIGN KEY(idBaseMae) REFERENCES BaseMae(idBaseMae)
 );
 
+CREATE TABLE IF NOT EXISTS Objetivo (
+	idObjetivo SERIAL PRIMARY KEY,
+  idMapa int NOT NULL,
+	descricao varchar(200) NOT NULL,
+	pontoX int NOT NULL,
+	pontoY int NOT NULL,
+	tipo tipoObjetivo NOT NULL,
+
+
+  CONSTRAINT FK_mapa_objetivo FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
+);
+
 -- Tabelas de relacionamentos
+
+CREATE TABLE IF NOT EXISTS EstatisticaMarcaObjetivo(
+	idObjetivo int NOT NULL,
+  idEstatistica int NOT NULL,
+	cumprido boolean NOT NULL,
+
+  CONSTRAINT FK_estatistica_estatisticamarcaobjetivo FOREIGN KEY(idEstatistica) REFERENCES Estatistica(idEstatistica),
+  CONSTRAINT FK_objetivo_estatisticamarcaobjetivo FOREIGN KEY(idObjetivo) REFERENCES Objetivo(idObjetivo),
+  CONSTRAINT PK_estatisticamarcaobjetivo PRIMARY KEY(idObjetivo,idEstatistica)
+);
 
 CREATE TABLE IF NOT EXISTS MapaTemMapa (
 	idMapaDono int NOT NULL,
@@ -238,15 +270,3 @@ CREATE TABLE IF NOT EXISTS PlayerCumpreMissao (
   CONSTRAINT PK_playercumpremissao PRIMARY KEY(idPlayer,idEstatistica,idMissao)
 );
 
--- Tabela com problema, se um objetivo for cumprido por um player os outros obterao o mesmo status.
---CREATE TABLE IF NOT EXISTS Objetivo (
---	idObjetivo SERIAL PRIMARY KEY,
---	idMissao int NOT NULL,
---  idMapa int NOT NULL,
---	descricao varchar(200) NOT NULL,
---	cumprido bool NOT NULL,
---	pontoX int NOT NULL,
---	pontoY int NOT NULL,
---	tipo bool NOT NULL
---);
---
