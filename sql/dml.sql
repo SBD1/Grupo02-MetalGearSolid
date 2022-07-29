@@ -3,3 +3,4 @@
 \i docker-entrypoint-initdb.d/Recurso.sql
 \i docker-entrypoint-initdb.d/Unidade.sql
 \i docker-entrypoint-initdb.d/codinome.sql
+\i docker-entrypoint-initdb.d/NPC.sql
