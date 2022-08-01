@@ -84,9 +84,9 @@ CREATE TABLE IF NOT EXISTS Mapa (
 CREATE TABLE IF NOT EXISTS Projeto (
 	idProjeto SERIAL PRIMARY KEY,
 	idArma int NOT NULL,
-	pontoX int NOT NULL,
-	pontoY int NOT NULL,
-	idMapa int NOT NULL,
+	pontoX int,
+	pontoY int,
+	idMapa int,
 	idUniforme int NOT NULL,
 	idItem int NOT NULL,
 
