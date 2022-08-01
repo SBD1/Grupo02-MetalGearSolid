@@ -8,3 +8,4 @@
 \i docker-entrypoint-initdb.d/Mapa.sql
 \i docker-entrypoint-initdb.d/Uniforme.sql
 \i docker-entrypoint-initdb.d/UniformeCamuflaTerreno.sql
+\i docker-entrypoint-initdb.d/Item.sql
