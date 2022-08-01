@@ -9,3 +9,5 @@
 \i docker-entrypoint-initdb.d/UniformeCamuflaTerreno.sql
 \i docker-entrypoint-initdb.d/Item.sql
 \i docker-entrypoint-initdb.d/NPC.sql
+\i docker-entrypoint-initdb.d/NPCUsaItem.sql
+\i docker-entrypoint-initdb.d/NPCEquipaArma.sql
