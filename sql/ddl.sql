@@ -111,6 +111,7 @@ CREATE TABLE IF NOT EXISTS NPC (
 	idNPC SERIAL PRIMARY KEY,
 	idUniforme int NOT NULL,
 	idUnidade int NOT NULL,
+	idMapa int,
 	nome char(50) NOT NULL,
 	qtdVida int NOT NULL,
 	nivelDesenvBase int NOT NULL,
@@ -118,10 +119,13 @@ CREATE TABLE IF NOT EXISTS NPC (
 	nivelSuporte int NOT NULL,
 	nivelMedica int NOT NULL,
 	nivelInteligencia int NOT NULL,
+	pontoX int,
+	pontoY int,
 
 
   CONSTRAINT FK_uniforme_npc FOREIGN KEY(idUniforme) REFERENCES Uniforme(idUniforme),
-  CONSTRAINT FK_unidade_npc FOREIGN KEY(idUnidade) REFERENCES Unidade(idUnidade)
+  CONSTRAINT FK_unidade_npc FOREIGN KEY(idUnidade) REFERENCES Unidade(idUnidade),
+  CONSTRAINT FK_mapa_mapa FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
 );
 
 CREATE TABLE IF NOT EXISTS Recurso (
