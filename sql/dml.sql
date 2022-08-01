@@ -6,3 +6,5 @@
 \i docker-entrypoint-initdb.d/NPC.sql
 \i docker-entrypoint-initdb.d/Terreno.sql
 \i docker-entrypoint-initdb.d/Mapa.sql
+\i docker-entrypoint-initdb.d/Uniforme.sql
+\i docker-entrypoint-initdb.d/UniformeCamuflaTerreno.sql
