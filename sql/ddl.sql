@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS Estatistica (
 CREATE TABLE IF NOT EXISTS Mapa (
 	idMapa SERIAL PRIMARY KEY,
 	tamanho int NOT NULL,
-	nome char(20) NOT NULL,
+	nome char(50) NOT NULL,
   idMissao int NOT NULL,
 
   CONSTRAINT FK_idMissao_Mapa FOREIGN KEY(idMissao) REFERENCES Missao(idMissao)
