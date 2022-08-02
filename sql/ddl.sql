@@ -83,12 +83,12 @@ CREATE TABLE IF NOT EXISTS Mapa (
 
 CREATE TABLE IF NOT EXISTS Projeto (
 	idProjeto SERIAL PRIMARY KEY,
-	idArma int NOT NULL,
+	idArma int,
 	pontoX int,
 	pontoY int,
 	idMapa int,
-	idUniforme int NOT NULL,
-	idItem int NOT NULL,
+	idUniforme int,
+	idItem int,
 
   CONSTRAINT FK_arma_projeto FOREIGN KEY(idArma) REFERENCES Arma(idArma),
   CONSTRAINT FK_uniforme_projeto FOREIGN KEY(idUniforme) REFERENCES Uniforme(idUniforme),
@@ -226,7 +226,8 @@ CREATE TABLE IF NOT EXISTS NPCEquipaArma (
 CREATE TABLE IF NOT EXISTS NPCUsaItem (
 	idNPC int NOT NULL,
 	idItem int NOT NULL,
-
+  quantidade int NOT NULL,
+  
   CONSTRAINT FK_npc_npcequipaitem FOREIGN KEY(idNPC) REFERENCES NPC(idNPC),
   CONSTRAINT FK_arma_npcequipaitem FOREIGN KEY(idItem) REFERENCES Item(idItem),
   CONSTRAINT PK_npcequipaitem PRIMARY KEY(idNPC,idItem)
