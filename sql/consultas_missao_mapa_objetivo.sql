@@ -23,6 +23,19 @@ select
 	mi.descricao as descricao_missao
 from mapa ma inner join missao mi on ma.idmissao = mi.idmissao;
 
+-- relaçao dos mapas que contem mapas, mostra o nome do mapa dono, o mapa que o
+-- mapa dono contém, o tamanho dele e a localizacao dele no mapa grande
+select 
+	md.nome as mapa_dono_nome,
+	m.nome as mapa_nome,
+	m.tamanho || 'x' || m.tamanho as mapa_tamanho,
+	'(' || mtm.pontoX || ', ' || mtm.pontoY || ')' as localizacao
+from mapatemmapa mtm
+inner join mapa md on 
+mtm.idmapadono = md.idmapa
+inner join mapa m on 
+mtm.idmapa = m.idmapa 
+
 -- mostra quantidade de ocorrencias existentes das tabelas
 select count(*) from mapa;
 select count(*) from objetivo;
