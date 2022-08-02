@@ -1,4 +1,4 @@
-INSERT INTO Terreno
+INSERT INTO Item
 (idItem, nome, descricao, dano, probNocaute )
 VALUES
 (1, 'Granada de mão', 'Projétil explosivo.', 80, 80),

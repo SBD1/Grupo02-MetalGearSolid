@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS Unidade (
 CREATE TABLE IF NOT EXISTS NPC (
 	idNPC SERIAL PRIMARY KEY,
 	idUniforme int NOT NULL,
-	idUnidade int NOT NULL,
+	idUnidade int,
 	idMapa int,
 	nome char(50) NOT NULL,
 	qtdVida int NOT NULL,

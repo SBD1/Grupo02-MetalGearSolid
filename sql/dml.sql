@@ -4,6 +4,7 @@
 \i docker-entrypoint-initdb.d/Unidade.sql
 \i docker-entrypoint-initdb.d/codinome.sql
 \i docker-entrypoint-initdb.d/Terreno.sql
+\i docker-entrypoint-initdb.d/Missao.sql
 \i docker-entrypoint-initdb.d/Mapa.sql
 \i docker-entrypoint-initdb.d/Uniforme.sql
 \i docker-entrypoint-initdb.d/UniformeCamuflaTerreno.sql
