@@ -12,3 +12,4 @@
 \i docker-entrypoint-initdb.d/NPCUsaItem.sql
 \i docker-entrypoint-initdb.d/NPCEquipaArma.sql
 \i docker-entrypoint-initdb.d/MapaTemMapa.sql
+\i docker-entrypoint-initdb.d/MapaPosicionaRecurso.sql
