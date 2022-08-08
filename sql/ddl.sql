@@ -10,7 +10,7 @@ CREATE TYPE tipoRecurso AS ENUM (
   'PMB', 'PLANTA', -- PMB e PLANTA foram pensados como sendo materiais processados apenas.
   'COMBUSTIVEL','MATERIALBIOLOGICO');
 
--- Tabelas independentes: Arma, BaseMae, codinome, Uniforme, Missao, Item, Terreno.
+-- Tabelas independentes: Arma, codinome, Uniforme, Missao, Item, Terreno.
 CREATE TABLE IF NOT EXISTS Arma (
 	idArma SERIAL PRIMARY KEY,
 	nome char(50) NOT NULL,
@@ -22,10 +22,6 @@ CREATE TABLE IF NOT EXISTS Arma (
 	penetracao int NOT NULL,
   municaoLetal Boolean NOT NULL,
 	tipo tipoArma NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS BaseMae (
-	idBaseMae SERIAL PRIMARY KEY
 );
 
 CREATE TABLE IF NOT EXISTS codinome (
@@ -61,6 +57,34 @@ CREATE TABLE IF NOT EXISTS Terreno (
 );
 
 -- Tabelas dependentes
+CREATE TABLE IF NOT EXISTS Player (
+	idPlayer SERIAL PRIMARY KEY,
+	idNPC int,
+	nome char(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Unidade (
+	idUnidade SERIAL PRIMARY KEY,
+  idPlayer int NOT NULL,
+	nivel int NOT NULL,
+	qtdSoldados int NOT NULL,
+	maxSoldados int NOT NULL,
+	tipo tipoUnidade NOT NULL,
+
+  CONSTRAINT FK_player_unidade FOREIGN KEY(idPlayer) REFERENCES Player(idPlayer)
+);
+
+
+CREATE TABLE IF NOT EXISTS Recurso (
+	idRecurso SERIAL PRIMARY KEY,
+	idPlayer int NOT NULL,
+	qtdBruto int NOT NULL,
+	qtdProcessado int NOT NULL,
+	tipo tipoRecurso NOT NULL,
+
+  CONSTRAINT FK_player_recurso FOREIGN KEY(idPlayer) REFERENCES Player(idPlayer)
+);
+
 CREATE TABLE IF NOT EXISTS Estatistica (
 	idEstatistica SERIAL PRIMARY KEY,
 	numMovimentos int NOT NULL,
@@ -81,32 +105,6 @@ CREATE TABLE IF NOT EXISTS Mapa (
   CONSTRAINT FK_idMissao_Mapa FOREIGN KEY(idMissao) REFERENCES Missao(idMissao)
 );
 
-CREATE TABLE IF NOT EXISTS Projeto (
-	idProjeto SERIAL PRIMARY KEY,
-	idArma int,
-	pontoX int,
-	pontoY int,
-	idMapa int,
-	idUniforme int,
-	idItem int,
-
-  CONSTRAINT FK_arma_projeto FOREIGN KEY(idArma) REFERENCES Arma(idArma),
-  CONSTRAINT FK_uniforme_projeto FOREIGN KEY(idUniforme) REFERENCES Uniforme(idUniforme),
-  CONSTRAINT FK_item_projeto FOREIGN KEY(idItem) REFERENCES Item(idItem),
-  CONSTRAINT FK_mapa_projeto FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
-);
-
-CREATE TABLE IF NOT EXISTS Unidade (
-	idUnidade SERIAL PRIMARY KEY,
-  idBaseMae int NOT NULL,
-	nivel int NOT NULL,
-	qtdSoldados int NOT NULL,
-	maxSoldados int NOT NULL,
-	tipo tipoUnidade NOT NULL,
-
-  CONSTRAINT FK_baseMae_Unidade FOREIGN KEY(idBaseMae) REFERENCES BaseMae(idBaseMae)
-);
-
 CREATE TABLE IF NOT EXISTS NPC (
 	idNPC SERIAL PRIMARY KEY,
 	idUniforme int NOT NULL,
@@ -122,21 +120,27 @@ CREATE TABLE IF NOT EXISTS NPC (
 	pontoX int,
 	pontoY int,
 
-
   CONSTRAINT FK_uniforme_npc FOREIGN KEY(idUniforme) REFERENCES Uniforme(idUniforme),
   CONSTRAINT FK_unidade_npc FOREIGN KEY(idUnidade) REFERENCES Unidade(idUnidade),
-  CONSTRAINT FK_mapa_mapa FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
+  CONSTRAINT FK_mapa_npc FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
 );
 
-CREATE TABLE IF NOT EXISTS Recurso (
-	idRecurso SERIAL PRIMARY KEY,
-	idBasemae int NOT NULL,
-	qtdBruto int NOT NULL,
-	qtdProcessado int NOT NULL,
-	tipo tipoRecurso NOT NULL,
+CREATE TABLE IF NOT EXISTS Projeto (
+	idProjeto SERIAL PRIMARY KEY,
+	idArma int,
+	pontoX int,
+	pontoY int,
+	idMapa int,
+	idUniforme int,
+	idItem int,
 
-  CONSTRAINT FK_baseMae_recurso FOREIGN KEY(idBaseMae) REFERENCES BaseMae(idBaseMae)
+  CONSTRAINT FK_arma_projeto FOREIGN KEY(idArma) REFERENCES Arma(idArma),
+  CONSTRAINT FK_uniforme_projeto FOREIGN KEY(idUniforme) REFERENCES Uniforme(idUniforme),
+  CONSTRAINT FK_item_projeto FOREIGN KEY(idItem) REFERENCES Item(idItem),
+  CONSTRAINT FK_mapa_projeto FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
 );
+
+
 
 CREATE TABLE IF NOT EXISTS Requisito (
 	idRequisito SERIAL PRIMARY KEY,
@@ -146,26 +150,19 @@ CREATE TABLE IF NOT EXISTS Requisito (
   CONSTRAINT FK_projeto_requisito FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto)
 );
 
-CREATE TABLE IF NOT EXISTS Player (
-	idPlayer SERIAL PRIMARY KEY,
-	idNPC int NOT NULL,
-  idBaseMae int Not NULL,
-	nome char(30) NOT NULL,
-
-  CONSTRAINT FK_npc_player FOREIGN KEY(idNPC) REFERENCES NPC(idNPC),
-  CONSTRAINT FK_baseMae_player FOREIGN KEY(idBaseMae) REFERENCES BaseMae(idBaseMae)
-);
 
 CREATE TABLE IF NOT EXISTS Objetivo (
 	idObjetivo SERIAL PRIMARY KEY,
   idMapa int NOT NULL,
+  idMissao int NOT NULL,
 	descricao varchar(200) NOT NULL,
 	pontoX int NOT NULL,
 	pontoY int NOT NULL,
 	tipo tipoObjetivo NOT NULL,
 
 
-  CONSTRAINT FK_mapa_objetivo FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa)
+  CONSTRAINT FK_mapa_objetivo FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa),
+  CONSTRAINT FK_missao_objetivo FOREIGN KEY(idMissao) REFERENCES Missao(idMissao)
 );
 
 -- Tabelas de relacionamentos
@@ -207,7 +204,8 @@ CREATE TABLE IF NOT EXISTS MapaPosicionaRecurso (
 	idRecurso int NOT NULL,
 	pontoX int NOT NULL,
 	pontoY int NOT NULL,
-	quantidade int NOT NULL,
+	qtdBruto int NOT NULL,
+	qtdProcessado int NOT NULL,
 
   CONSTRAINT FK_mapa_mapaposicionarecurso FOREIGN KEY(idMapa) REFERENCES Mapa(idMapa),
   CONSTRAINT FK_recurso_mapaposicionarecurso FOREIGN KEY(idRecurso) REFERENCES Recurso(idRecurso),
