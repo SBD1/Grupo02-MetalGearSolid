@@ -1,8 +1,8 @@
 INSERT INTO MapaPosicionaRecurso
-(idMapa,idRecurso,pontoX, pontoY, quantidade)
+(idMapa,idRecurso,pontoX, pontoY, qtdBruto,qtdProcessado)
 VALUES 
-(1, 8,10, 10,2000),
-(1, 9, 10, 10,2000),
-(5, 11, 15, 16, 3000),
-(4, 13, 6, 6,2000),
-(3, 12, 12, 12,2000);
+(1, 3,10, 10,2000,500),
+(1, 4, 10, 10,2000,500),
+(5, 5, 15, 16, 3000,500),
+(4, 6, 6, 6,2000,500),
+(3, 7, 12, 12,2000,500);

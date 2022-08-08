@@ -1,5 +1,5 @@
+\i docker-entrypoint-initdb.d/inserts/Player.sql
 \i docker-entrypoint-initdb.d/inserts/Arma.sql
-\i docker-entrypoint-initdb.d/inserts/BaseMae.sql
 \i docker-entrypoint-initdb.d/inserts/Recurso.sql
 \i docker-entrypoint-initdb.d/inserts/Unidade.sql
 \i docker-entrypoint-initdb.d/inserts/codinome.sql

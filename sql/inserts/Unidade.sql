@@ -1,5 +1,5 @@
 insert into Unidade
-(idBaseMae,nivel,maxSoldados,qtdSoldados,tipo)
+(idPlayer,nivel,maxSoldados,qtdSoldados,tipo)
 values
 (1,0,100,0,'COMBATE'),
 (1,0,100,0,'MEDICA'),
