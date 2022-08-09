@@ -1,0 +1,2 @@
+class BaseMae:
+    pass

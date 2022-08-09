@@ -1,0 +1,2 @@
+class Uniforme:
+    pass

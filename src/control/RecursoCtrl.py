@@ -1,0 +1,2 @@
+class Recurso:
+    pass
