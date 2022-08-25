@@ -1,7 +1,7 @@
 -- Incluir os tipos ENUM.
 CREATE TYPE tipoArma AS ENUM ('PRIMARIA','SECUNDARIA');
-CREATE TYPE tipoObjetivo AS ENUM ('PRINCIPAL','SECUNDARIO');
-CREATE TYPE tipoRequisito AS ENUM ('DESENVOLVIMENTO','USO');
+CREATE TYPE tipoObjetivo AS ENUM ('PRINCIPAL','SECUNDARIO'); 
+CREATE TYPE tipoProjeto AS ENUM ('UNIFORME','ARMA','ITEM');
 
 CREATE TYPE tipoUnidade AS ENUM ('COMBATE','MEDICA','INTELIGENCIA','DESENVBASE','SUPORTE');
   -- PMB (Produto Militar Bruto)
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Arma (
 	txDisparo int NOT NULL,
 	tamPente int NOT NULL,
 	penetracao int NOT NULL,
-  municaoLetal Boolean NOT NULL,
+  	municaoLetal Boolean NOT NULL,
 	tipo tipoArma NOT NULL
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS Item (
 	nome char(30) NOT NULL,
 	descricao varchar(100) NOT NULL,
 	dano int NOT NULL,
-  probNocaute int NOT NULL
+  	probNocaute int NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Terreno (
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS Player (
 
 CREATE TABLE IF NOT EXISTS Unidade (
 	idUnidade SERIAL PRIMARY KEY,
-  idPlayer int NOT NULL,
+  	idPlayer int NOT NULL,
 	nivel int NOT NULL,
 	qtdSoldados int NOT NULL,
 	maxSoldados int NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS Mapa (
 	idMapa SERIAL PRIMARY KEY,
 	tamanho int NOT NULL,
 	nome char(50) NOT NULL,
-  idMissao int NOT NULL,
+  	idMissao int NOT NULL,
 
   CONSTRAINT FK_idMissao_Mapa FOREIGN KEY(idMissao) REFERENCES Missao(idMissao)
 );
@@ -141,20 +141,10 @@ CREATE TABLE IF NOT EXISTS Projeto (
 );
 
 
-
-CREATE TABLE IF NOT EXISTS Requisito (
-	idRequisito SERIAL PRIMARY KEY,
-	idProjeto int NOT NULL,
-	tipo tipoRequisito NOT NULL,
-
-  CONSTRAINT FK_projeto_requisito FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto)
-);
-
-
 CREATE TABLE IF NOT EXISTS Objetivo (
 	idObjetivo SERIAL PRIMARY KEY,
-  idMapa int NOT NULL,
-  idMissao int NOT NULL,
+ 	idMapa int NOT NULL,
+  	idMissao int NOT NULL,
 	descricao varchar(200) NOT NULL,
 	pontoX int NOT NULL,
 	pontoY int NOT NULL,
@@ -169,7 +159,7 @@ CREATE TABLE IF NOT EXISTS Objetivo (
 
 CREATE TABLE IF NOT EXISTS EstatisticaMarcaObjetivo(
 	idObjetivo int NOT NULL,
-  idEstatistica int NOT NULL,
+  	idEstatistica int NOT NULL,
 	cumprido boolean NOT NULL,
 
   CONSTRAINT FK_estatistica_estatisticamarcaobjetivo FOREIGN KEY(idEstatistica) REFERENCES Estatistica(idEstatistica),
@@ -224,31 +214,33 @@ CREATE TABLE IF NOT EXISTS NPCEquipaArma (
 CREATE TABLE IF NOT EXISTS NPCUsaItem (
 	idNPC int NOT NULL,
 	idItem int NOT NULL,
-  quantidade int NOT NULL,
+  	quantidade int NOT NULL,
   
   CONSTRAINT FK_npc_npcequipaitem FOREIGN KEY(idNPC) REFERENCES NPC(idNPC),
   CONSTRAINT FK_arma_npcequipaitem FOREIGN KEY(idItem) REFERENCES Item(idItem),
   CONSTRAINT PK_npcequipaitem PRIMARY KEY(idNPC,idItem)
 );
 
-CREATE TABLE IF NOT EXISTS RequisitoConsomeRecurso (
-	idRequisito int NOT NULL,
+CREATE TABLE IF NOT EXISTS ProjetoConsomeRecurso (
+	idProjeto int NOT NULL,
 	idRecurso int NOT NULL,
 	quantidade int NOT NULL,
+	tipo tipoProjeto NOT NULL,
 
-  CONSTRAINT FK_requisito_requisitoconsomerecurso FOREIGN KEY(idRequisito) REFERENCES Requisito(idRequisito),
-  CONSTRAINT FK_recurso_requisitoconsomerecurso FOREIGN KEY(idRecurso) REFERENCES Recurso(idRecurso),
-  CONSTRAINT PK_requisitoconsomerecurso PRIMARY KEY(idRequisito,idRecurso)
+  CONSTRAINT FK_projeto_projetoconsomerecurso FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto),
+  CONSTRAINT FK_recurso_projetoconsomerecurso FOREIGN KEY(idRecurso) REFERENCES Recurso(idRecurso),
+  CONSTRAINT PK_projetoconsomerecurso PRIMARY KEY(idProjeto,idRecurso)
 );
 
-CREATE TABLE IF NOT EXISTS RequisitoDependeUnidade (
-	idRequisito int NOT NULL,
+CREATE TABLE IF NOT EXISTS ProjetoDependeUnidade (
+	idProjeto int NOT NULL,
 	idUnidade int NOT NULL,
 	nivelUnidade int NOT NULL,
+	tipo tipoProjeto NOT NULL,
 
-  CONSTRAINT FK_requisito_requisitoconsomerecurso FOREIGN KEY(idRequisito) REFERENCES Requisito(idRequisito),
-  CONSTRAINT FK_unidade_requisitoconsomerecurso FOREIGN KEY(idUnidade) REFERENCES Unidade(idUnidade),
-  CONSTRAINT PK_requisitodependeunidade PRIMARY KEY(idRequisito,idUnidade)
+  CONSTRAINT FK_requisito_projetoconsomerecurso FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto),
+  CONSTRAINT FK_unidade_projetoconsomerecurso FOREIGN KEY(idUnidade) REFERENCES Unidade(idUnidade),
+  CONSTRAINT PK_projetodependeunidade PRIMARY KEY(idProjeto,idUnidade)
 );
 
 CREATE TABLE IF NOT EXISTS UniformeCamuflaTerreno (
