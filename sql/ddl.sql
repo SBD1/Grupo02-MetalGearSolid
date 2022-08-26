@@ -2,6 +2,7 @@
 CREATE TYPE tipoArma AS ENUM ('PRIMARIA','SECUNDARIA');
 CREATE TYPE tipoObjetivo AS ENUM ('PRINCIPAL','SECUNDARIO'); 
 CREATE TYPE tipoProjeto AS ENUM ('DESENVOLVIMENTO','USO');
+CREATE TYPE tipoItem AS ENUM ('CONSUMIVEL', 'DANO');
 
 CREATE TYPE tipoUnidade AS ENUM ('COMBATE','MEDICA','INTELIGENCIA','DESENVBASE','SUPORTE');
   -- PMB (Produto Militar Bruto)
@@ -44,11 +45,32 @@ CREATE TABLE IF NOT EXISTS Missao (
 
 CREATE TABLE IF NOT EXISTS Item (
 	idItem SERIAL PRIMARY KEY,
-	nome char(30) NOT NULL,
-	descricao varchar(100) NOT NULL,
-	dano int NOT NULL,
-  	probNocaute int NOT NULL
+	tipo tipoItem NOT NULL
+
 );
+
+CREATE TABLE IF NOT EXISTS Consumivel (
+	idItem int NOT NULL,
+	txAumentoDanoArma int NOT NULL CHECK (txAumentoDanoArma >= 0 AND txAumentoDanoArma < 100),
+	txAumentoCamuflagem int NOT NULL CHECK (txAumentoCamuflagem >= 0 AND txAumentoCamuflagem < 100),
+	txAumentoDefesa int NOT NULL CHECK (txAumentoDefesa >= 0 AND txAumentoDefesa < 100),
+	txRecuperacaoVida int NOT NULL CHECK (txRecuperacaoVida >= 0 AND txRecuperacaoVida < 100),
+	descricao varchar(100) NOT NULL,
+	nome varchar(35) NOT NULL,
+
+
+	CONSTRAINT FK_id_item FOREIGN KEY(idItem) REFERENCES Item(idItem)
+)INHERITS (Item);
+
+CREATE TABLE IF NOT EXISTS Dano (
+	idItem int NOT NULL,
+	qntDano int NOT NULL,
+	proNocaute int NOT NULL CHECK (proNocaute >= 0 AND proNocaute < 100),
+	descricao varchar(100) NOT NULL,
+	nome varchar(35) NOT NULL,
+
+	CONSTRAINT FK_id_item FOREIGN KEY(idItem) REFERENCES Item(idItem)
+)INHERITS (Item);
 
 CREATE TABLE IF NOT EXISTS Terreno (
 	idTerreno SERIAL PRIMARY KEY,

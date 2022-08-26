@@ -8,7 +8,7 @@
 \i docker-entrypoint-initdb.d/inserts/Mapa.sql
 \i docker-entrypoint-initdb.d/inserts/Uniforme.sql
 \i docker-entrypoint-initdb.d/inserts/UniformeCamuflaTerreno.sql
-\i docker-entrypoint-initdb.d/inserts/Item.sql
+--\i docker-entrypoint-initdb.d/inserts/Item.sql --CRIAR UM TRIGGER PARA A TABELA DE ITEM
 \i docker-entrypoint-initdb.d/inserts/NPC.sql
 \i docker-entrypoint-initdb.d/inserts/NPCUsaItem.sql
 \i docker-entrypoint-initdb.d/inserts/NPCEquipaArma.sql
