@@ -1,5 +1,6 @@
 from src.settings import MENSAGEM_INTERFACE_MENU_PRINCIPAL, ENTRADAS_ACEITAS_MENU_PRINCIPAL
-
+from novoJogo import interface_novo_jogo
+from carregaJogo import interface_carregamento_jogo
 
 def interface_menu_principal():
 
@@ -18,7 +19,7 @@ def trata_entrada(entrada_do_jogador: [str], entradas_aceitas: [str]):
         print("Insira uma entrada válida!")
         interface_menu_principal()
     else:
-        # direciona para outro menu
+        direciona_para_outro_menu(entrada)
         pass
 
 
@@ -33,7 +34,16 @@ def entrada_nao_aceita(entrada_do_jogador: str, entradas_aceitas: [str]):
         return True
     return False
 
+
+def direciona_para_outro_menu(entrada: str):
+    if entrada == 'S':
+        print("Obrigado por jogar!")
+    if entrada == 'C':
+        interface_carregamento_jogo()
+    if entrada == 'N':
+        interface_novo_jogo()
+
 ### TESTE
-# interface_menu_principal()
+interface_menu_principal()
 
 
