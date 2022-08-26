@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS NPCUsaItem (
 CREATE TABLE IF NOT EXISTS ProjetoConsomeRecurso (
 	idProjeto int NOT NULL,
 	idRecurso int NOT NULL,
-	quantidade int NOT NULL,
+	qtdProcessado int NOT NULL DEFAULT 0,
 	tipo tipoProjeto NOT NULL,
 
   CONSTRAINT FK_projeto_projetoconsomerecurso FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto),
@@ -235,7 +235,7 @@ CREATE TABLE IF NOT EXISTS ProjetoConsomeRecurso (
 CREATE TABLE IF NOT EXISTS ProjetoDependeUnidade (
 	idProjeto int NOT NULL,
 	idUnidade int NOT NULL,
-	nivelUnidade int NOT NULL,
+	nivelUnidade int NOT NULL DEFAULT 0,
 	tipo tipoProjeto NOT NULL,
 
   CONSTRAINT FK_requisito_projetoconsomerecurso FOREIGN KEY(idProjeto) REFERENCES Projeto(idProjeto),
