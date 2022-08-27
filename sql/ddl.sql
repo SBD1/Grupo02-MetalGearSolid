@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Arma (
 	nome char(50) NOT NULL,
 	dano int NOT NULL,
 	maxBalas int NOT NULL,
-	probAcerto int NOT NULL,
+	probAcerto int NOT NULL CHECK (probAcerto >= 0 AND probAcerto < 101),
 	txDisparo int NOT NULL,
 	tamPente int NOT NULL,
 	penetracao int NOT NULL,
@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS Item (
 
 CREATE TABLE IF NOT EXISTS Consumivel (
 	idItem int NOT NULL,
-	txAumentoDanoArma int NOT NULL CHECK (txAumentoDanoArma >= 0 AND txAumentoDanoArma < 100),
-	txAumentoCamuflagem int NOT NULL CHECK (txAumentoCamuflagem >= 0 AND txAumentoCamuflagem < 100),
-	txAumentoDefesa int NOT NULL CHECK (txAumentoDefesa >= 0 AND txAumentoDefesa < 100),
-	txRecuperacaoVida int NOT NULL CHECK (txRecuperacaoVida >= 0 AND txRecuperacaoVida < 100),
+	txAumentoDanoArma int NOT NULL CHECK (txAumentoDanoArma >= 0 AND txAumentoDanoArma < 101),
+	txAumentoCamuflagem int NOT NULL CHECK (txAumentoCamuflagem >= 0 AND txAumentoCamuflagem < 101),
+	txAumentoDefesa int NOT NULL CHECK (txAumentoDefesa >= 0 AND txAumentoDefesa < 101),
+	txRecuperacaoVida int NOT NULL CHECK (txRecuperacaoVida >= 0 AND txRecuperacaoVida < 101),
 	descricao varchar(100) NOT NULL,
 	nome varchar(35) NOT NULL,
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS Consumivel (
 CREATE TABLE IF NOT EXISTS Dano (
 	idItem int NOT NULL,
 	qntDano int NOT NULL,
-	proNocaute int NOT NULL CHECK (proNocaute >= 0 AND proNocaute < 100),
+	proNocaute int NOT NULL CHECK (proNocaute >= 0 AND proNocaute < 101),
 	descricao varchar(100) NOT NULL,
 	nome varchar(35) NOT NULL,
 
@@ -134,11 +134,11 @@ CREATE TABLE IF NOT EXISTS NPC (
 	idMapa int,
 	nome char(50) NOT NULL,
 	qtdVida int NOT NULL,
-	nivelDesenvBase int NOT NULL,
-	nivelCombate int NOT NULL,
-	nivelSuporte int NOT NULL,
-	nivelMedica int NOT NULL,
-	nivelInteligencia int NOT NULL,
+	nivelDesenvBase int NOT NULL CHECK (nivelDesenvBase > 0 AND nivelDesenvBase <= 10),
+	nivelCombate int NOT NULL CHECK (nivelCombate > 0 AND nivelCombate <= 10),
+	nivelSuporte int NOT NULL CHECK (nivelSuporte > 0 AND nivelSuporte <= 10),
+	nivelMedica int NOT NULL CHECK (nivelMedica > 0 AND nivelMedica <= 10),
+	nivelInteligencia int NOT NULL CHECK (nivelInteligencia > 0 AND nivelInteligencia <= 10),
 	pontoX int,
 	pontoY int,
 
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS ProjetoDependeUnidade (
 CREATE TABLE IF NOT EXISTS UniformeCamuflaTerreno (
 	idTerreno int NOT NULL,
 	idUniforme int NOT NULL,
-	taxaCamuflagem int NOT NULL,
+	taxaCamuflagem int NOT NULL CHECK (taxaCamuflagem >= 0 AND taxaCamuflagem < 101),
 
   CONSTRAINT FK_terreno_uniformecamufraterreno FOREIGN KEY(idTerreno) REFERENCES Terreno(idTerreno),
   CONSTRAINT FK_uniforme_uniformecamufraterreno FOREIGN KEY(idUniforme) REFERENCES Terreno(idTerreno),
