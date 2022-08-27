@@ -1,4 +1,4 @@
-from src.settings import MENSAGEM_INTERFACE_NOVO_JOGO
+from interfaces.settings import MENSAGEM_INTERFACE_NOVO_JOGO
 
 
 def interface_novo_jogo():

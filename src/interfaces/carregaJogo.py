@@ -1,4 +1,4 @@
-from src.settings import MENSAGEM_INTERFACE_CARREGAMENTO
+from interfaces.settings import MENSAGEM_INTERFACE_CARREGAMENTO
 
 
 def interface_carregamento_jogo():

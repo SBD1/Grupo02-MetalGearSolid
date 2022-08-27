@@ -1,6 +1,6 @@
-from src.settings import MENSAGEM_INTERFACE_MENU_PRINCIPAL, ENTRADAS_ACEITAS_MENU_PRINCIPAL
-from novoJogo import interface_novo_jogo
-from carregaJogo import interface_carregamento_jogo
+from interfaces.settings import MENSAGEM_INTERFACE_MENU_PRINCIPAL, ENTRADAS_ACEITAS_MENU_PRINCIPAL
+from interfaces.novoJogo import interface_novo_jogo
+from interfaces.carregaJogo import interface_carregamento_jogo
 
 def interface_menu_principal():
 
