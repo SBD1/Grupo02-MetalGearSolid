@@ -1,4 +1,6 @@
-from interfaces.settings import MENSAGEM_INTERFACE_NOVO_JOGO
+MENSAGEM_INTERFACE_NOVO_JOGO = """Insira o seu nome de usuário.
+Esse nome será utilizado para identificá-lo e para carregar o progresso.
+Caso queira voltar ao menu principal, digite "voltar"."""
 
 
 def interface_novo_jogo():

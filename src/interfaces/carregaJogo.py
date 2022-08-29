@@ -1,13 +1,11 @@
-from interfaces.settings import MENSAGEM_INTERFACE_CARREGAMENTO
-
+MENSAGEM_INTERFACE_CARREGAMENTO = """Insira o seu nome de usuário.
+Caso queira voltar ao menu principal, digite "voltar"."""
 
 def interface_carregamento_jogo():
 
-    mensagem_da_interface = MENSAGEM_INTERFACE_CARREGAMENTO
+    print(MENSAGEM_INTERFACE_CARREGAMENTO)
 
-    print(mensagem_da_interface)
-
-    entrada_do_jogador = input(">> ").split()
+    entrada_do_jogador = input(">> ")
     # TRATAMENTO DE EXCEÇÕES: CASO O USUÁRIO INSIRA UM NOME NÃO EXISTENTE NO SISTEMA.
     trata_entrada(entrada_do_jogador)
 
