@@ -1,3 +1,51 @@
+CREATE OR REPLACE FUNCTION verifica_tamanho_mapadono() RETURNS trigger as $verifica_tam_mapadono$
+DECLARE
+	tamanhoMapa INTEGER;
+BEGIN
+	select tamanho into tamanhoMapa
+	from Mapa where idMapa = NEW.idMapaDono;
+
+	IF (NEW.pontoX < 0 or NEW.pontoX >= tamanhoMapa) or (NEW.pontoY < 0 or NEW.pontoY >= tamanhoMapa) THEN
+		RAISE EXCEPTION 'Tamanho do mapa dono inválido';
+	END IF;
+
+	RETURN NEW;
+END;
+$verifica_tam_mapadono$ language plpgsql;
+
+CREATE OR REPLACE TRIGGER verifica_tam_mapadono BEFORE INSERT OR UPDATE ON MapaTemMapa 
+	FOR EACH ROW EXECUTE FUNCTION verifica_tamanho_mapadono();
+
+
+CREATE OR REPLACE FUNCTION verifica_tamanho_mapa() RETURNS trigger as $verifica_tam_mapa$
+DECLARE
+	tamanhoMapa INTEGER;
+BEGIN
+	select tamanho into tamanhoMapa
+	from Mapa where idMapa = NEW.idMapa;
+
+	IF (NEW.pontoX < 0 or NEW.pontoX >= tamanhoMapa) or (NEW.pontoY < 0 or NEW.pontoY >= tamanhoMapa) THEN
+		RAISE EXCEPTION 'Tamanho do mapa inválido';
+	END IF;
+
+	RETURN NEW;
+END;
+$verifica_tam_mapa$ language plpgsql;
+
+CREATE OR REPLACE TRIGGER verifica_tam_mapa BEFORE INSERT OR UPDATE ON Projeto 
+	FOR EACH ROW EXECUTE FUNCTION verifica_tamanho_mapa();
+
+CREATE OR REPLACE TRIGGER verifica_tam_mapa BEFORE INSERT OR UPDATE ON Objetivo 
+	FOR EACH ROW EXECUTE FUNCTION verifica_tamanho_mapa();
+
+CREATE OR REPLACE TRIGGER verifica_tam_mapa BEFORE INSERT OR UPDATE ON MapaPosicionaRecurso 
+	FOR EACH ROW EXECUTE FUNCTION verifica_tamanho_mapa();
+
+CREATE OR REPLACE TRIGGER verifica_tam_mapa BEFORE INSERT OR UPDATE ON Npc 
+	FOR EACH ROW EXECUTE FUNCTION verifica_tamanho_mapa();
+
+
+
 CREATE OR REPLACE FUNCTION verifica_pos_objetivo() RETURNS trigger as $verifica_objetivo$
 DECLARE
 	qtdEntidadesCoordenada INTEGER := 0;
@@ -36,7 +84,7 @@ BEGIN
 END;
 $verifica_objetivo$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE TRIGGER verifica_objetivo BEFORE INSERT ON Objetivo
+CREATE OR REPLACE TRIGGER verifica_objetivo BEFORE INSERT OR UPDATE ON Objetivo
 	FOR EACH ROW EXECUTE FUNCTION verifica_pos_objetivo();
 
 CREATE OR REPLACE FUNCTION insert_player() RETURNS trigger as $insert_player$
