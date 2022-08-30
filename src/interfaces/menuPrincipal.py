@@ -1,8 +1,11 @@
 from novoJogo import interface_novo_jogo
 from carregaJogo import interface_carregamento_jogo
 
+
 def interface_exit():
+    print("Obrigado por jogar Metal Gear Solid V!")
     return True
+
 
 MENSAGEM_MENU = """Bem-vindo ao Metal Gear Solid V.\n
     Escolha uma opção: \n
@@ -15,6 +18,7 @@ ENTRADAS_ACEITAS = {
     'C': interface_carregamento_jogo,
     'S': interface_exit
 }
+
 
 def interface_menu_principal():
     quer_sair = False
