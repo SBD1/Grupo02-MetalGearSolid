@@ -8,8 +8,8 @@ class ConectaBanco:
         self.cur = self.conn.cursor()
 
     def util(self):
-        a = self.select("NPC", "idNPC,nome", "nome = 'Flavin do pastel'")
-        print(a)
+        for a in self.select("NPC", "idNPC,nome"):
+            print(a)
 
     def select(
             self,
