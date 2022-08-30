@@ -1,3 +1,22 @@
+CREATE OR REPLACE FUNCTION atualiza_playerpegaprojeto() RETURNS trigger as $atualiza_playerpegaprojeto$
+DECLARE
+	qtd_processado INTEGER;
+BEGIN
+	select qtdProcessado into qtd_processado
+	from ProjetoConsomeRecurso where idProjeto = NEW.idProjeto;
+
+	IF qtd_processado = 0 THEN
+		NEW.concluido = true;	
+	END IF;
+
+	RETURN NEW;
+END;
+$atualiza_playerpegaprojeto$ language plpgsql;
+
+CREATE OR REPLACE TRIGGER atualiza_playerpegaprojeto AFTER INSERT ON PlayerPegaProjeto
+	FOR EACH ROW EXECUTE FUNCTION atualiza_playerpegaprojeto();
+
+
 CREATE OR REPLACE FUNCTION verifica_tamanho_mapadono() RETURNS trigger as $verifica_tam_mapadono$
 DECLARE
 	tamanhoMapa INTEGER;
@@ -130,7 +149,8 @@ BEGIN
 	RETURNING idNpc into novoIdNpc;
 
 	-- atibui Big Boss ao Player;
-	UPDATE Player set idNpc = novoIdNpc WHERE idPlayer = NEW.idPlayer;
+--	UPDATE Player set idNpc = novoIdNpc WHERE idPlayer = NEW.idPlayer;
+	NEW.idNpc = novoIdNpc;
 	RETURN NEW;
 END;
 $insert_player$ LANGUAGE plpgsql;
