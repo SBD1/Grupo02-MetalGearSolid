@@ -9,4 +9,6 @@ def interface_novo_jogo():
     # TRATAMENTO DE EXCEÇÕES: CASO O USUÁRIO DIGITE UM NOME JÁ EXISTENTE NO SISTEMA.
     # PRECISA CONECTAR NO BD
 
+    entrada_do_jogador = input(">> ")
+
     print(mensagem_da_interface)
