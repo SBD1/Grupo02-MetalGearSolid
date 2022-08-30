@@ -1,13 +1,8 @@
-import psycopg2
-import time
+import sys
+sys.path.append('./interfaces')
 
-conn = psycopg2.connect(host="postgres",dbname="metalgear", user="postgres", password="postgres")
-cur = conn.cursor()
-while True:
-    cur.execute("select * from providers;")
-    obj = cur.fetchall()
-    for o in obj:
-        print(o)
-    print(f"Sim, deu certo")
-    time.sleep(10)
-conn.close()
+from interfaces.menuPrincipal import interface_menu_principal
+
+
+if __name__ == "__main__":
+    interface_menu_principal()
