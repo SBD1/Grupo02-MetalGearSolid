@@ -1,4 +1,4 @@
-from ConectaBanco import ConectaBanco
+from ControlaBanco import ControlaBanco
 
 MENSAGEM_INTERFACE_CARREGAMENTO = """Insira o seu nome de usuário.
 Caso queira voltar ao menu principal, digite "voltar"."""
@@ -6,7 +6,7 @@ Caso queira voltar ao menu principal, digite "voltar"."""
 
 def interface_carregamento_jogo():
 
-    c = ConectaBanco()
+    c = ControlaBanco()
 
     print(MENSAGEM_INTERFACE_CARREGAMENTO)
 
@@ -20,7 +20,6 @@ def interface_carregamento_jogo():
             print(nome)
 
         entrada_do_jogador = input(">> ")
-
 
 
 def trata_entrada(entrada):

@@ -1,7 +1,7 @@
 import psycopg2
 
 
-class ConectaBanco:
+class ControlaBanco:
 
     def __init__(self):
         self.conn = psycopg2.connect(host="postgres", dbname="metalgear", user="cleiton", password="cleiton123")
