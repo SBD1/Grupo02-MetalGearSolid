@@ -24,7 +24,6 @@ class ControlaBanco:
             self.cur.execute(f"select {colunas} from {tabela} where {onde};")
 
         self.conn.commit()
-
         return self.cur.fetchall()
 
     def update(
@@ -51,6 +50,5 @@ class ControlaBanco:
         print(f"insert into {tabela} ({colunas}) values ({valores});")
 
         self.cur.execute(f"insert into {tabela} ({colunas}) values ({valores});")
-
         self.conn.commit()
 
