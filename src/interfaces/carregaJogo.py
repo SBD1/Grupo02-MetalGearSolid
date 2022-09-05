@@ -11,15 +11,16 @@ def interface_carregamento_jogo():
     print(MENSAGEM_INTERFACE_CARREGAMENTO)
 
     entrada_do_jogador = input(">> ")
-    if entrada_do_jogador == "voltar":
-        return
+    while entrada_do_jogador != "voltar":
+        nome = c.select("Player", "nome", f"nome = '{entrada_do_jogador}'")
 
-    nome = c.select("Player", "nome", f"nome = '{entrada_do_jogador}'")
-    # TRATAMENTO DE EXCEÇÕES: CASO O USUÁRIO INSIRA UM NOME NÃO EXISTENTE NO SISTEMA.
-    if not nome:
-        print("Insira um nome existente no sistema!")
-    else:
-        print(nome)
+        if not nome:
+            print("Insira um nome existente no sistema!")
+        else:
+            print(nome)
+
+        entrada_do_jogador = input(">> ")
+
 
 
 def trata_entrada(entrada):
