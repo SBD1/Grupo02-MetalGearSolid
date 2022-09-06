@@ -16,14 +16,16 @@ def interface_novo_jogo():
     while entrada_do_jogador != "voltar":
 
         player = banco.select("Player", "nome", f"nome = '{entrada_do_jogador}'")
+
         if player:
             print("Esse nome já existe no sistema. Por favor, insira um nome válido!")
             print("""Caso queira voltar ao menu principal, digite "voltar". """)
-
         else:
-            pass # Aqui, precisamos decidir se vamos direcionar o usuário direto para a interface de seleção de missões ou
-                 # se vamos dizer que o nome foi cadastrado no sistema e, a partir disso, informá-lo de que ele deve entrar
-                 # na interface de carregamento de jogo para acessá-lo.
+            banco.insert("Player", "nome", f"'{entrada_do_jogador}'")
+            break                           # Aqui, precisamos decidir se vamos direcionar o usuário direto para a interface de seleção de missões ou
+                                            # se vamos dizer que o nome foi cadastrado no sistema e, a partir disso, informá-lo de que ele deve entrar
+                                            # na interface de carregamento de jogo para acessá-lo.
 
+        entrada_do_jogador = input(">> ")
 
 
