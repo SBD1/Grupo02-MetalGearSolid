@@ -11,6 +11,17 @@ class ControlaBanco:
         for a in self.select("NPC", "idNPC,nome"):
             print(a)
 
+    def processa_string(self,linhas):
+        tuplasProcessadas = []
+        for linha in linhas:
+            tempColuna = []
+            for coluna in linha:
+                if type(coluna) is str:
+                    coluna = coluna.strip()
+                tempColuna.append(coluna)
+            tuplasProcessadas.append(tuple(tempColuna))
+        return tuplasProcessadas
+    
     def select(
             self,
             tabela: str = '',
@@ -24,7 +35,10 @@ class ControlaBanco:
             self.cur.execute(f"select {colunas} from {tabela} where {onde};")
 
         self.conn.commit()
-        return self.cur.fetchall()
+
+        listaTuplasProcessadas = self.processa_string(self.cur.fetchall())
+
+        return listaTuplasProcessadas
 
     def update(
             self,
