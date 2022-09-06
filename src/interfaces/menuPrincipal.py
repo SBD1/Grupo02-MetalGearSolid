@@ -1,9 +1,10 @@
 from novoJogo import interface_novo_jogo
 from carregaJogo import interface_carregamento_jogo
+from settings import desenha_cabecalho,desenha_saida
 
 
 def interface_exit():
-    print("Obrigado por jogar Metal Gear Solid V!")
+    desenha_saida()
     return True
 
 
@@ -23,6 +24,7 @@ ENTRADAS_ACEITAS = {
 def interface_menu_principal():
     quer_sair = False
     while not quer_sair:
+        desenha_cabecalho()
         print(MENSAGEM_MENU)
 
         entrada_jogador = input(">> ")

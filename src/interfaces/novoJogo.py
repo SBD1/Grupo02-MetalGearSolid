@@ -1,4 +1,5 @@
 from ControlaBanco import ControlaBanco
+from settings import desenha_cabecalho
 
 MENSAGEM_INTERFACE_NOVO_JOGO = """Insira o seu nome de usuário.
 Esse nome será utilizado para identificá-lo e para carregar o progresso.
@@ -10,6 +11,7 @@ def interface_novo_jogo():
     # PRECISA CONECTAR NO BD
 
     banco = ControlaBanco()
+    desenha_cabecalho()
     print(MENSAGEM_INTERFACE_NOVO_JOGO)
     entrada_do_jogador = input(">> ")
 

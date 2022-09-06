@@ -1,4 +1,5 @@
 from ControlaBanco import ControlaBanco
+from settings import desenha_cabecalho
 
 MENSAGEM_INTERFACE_CARREGAMENTO = """Insira o seu nome de usuário.
 Caso queira voltar ao menu principal, digite "voltar"."""
@@ -8,6 +9,7 @@ def interface_carregamento_jogo():
 
     banco = ControlaBanco()
 
+    desenha_cabecalho()
     print(MENSAGEM_INTERFACE_CARREGAMENTO)
 
     entrada_do_jogador = input(">> ")
