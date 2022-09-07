@@ -44,14 +44,14 @@ def interface_menu_missoes():
         time.sleep(1)
 
 
-def trata_entrada(entrada, quantidade_de_missoes_disponiveis):  # refatorar quando possível
-    if len(entrada) > 2:
+def trata_entrada(entrada, quantidade_de_missoes_disponiveis):  # função que trata a entrada do jogador
+    if len(entrada) > 2: # caso haja mais de 2 strings na entrada
         return True
     if entrada[0] != "voltar" and entrada[0] != "detalhar":
         return True
 
-    if len(entrada) == 1:
+    if len(entrada) == 1:  # se a entrada for voltar ou detalhar, vai entrar nesse if. Nesse caso, devemos sair do loop.
         return False
 
-    if int(entrada[1]) < 1 or int(entrada[1]) > quantidade_de_missoes_disponiveis:
+    if int(entrada[1]) < 1 or int(entrada[1]) > quantidade_de_missoes_disponiveis:   # caso o numero da missão não esteja dentro do escopo aceito
         return True
