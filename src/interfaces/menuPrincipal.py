@@ -1,6 +1,6 @@
 from novoJogo import interface_novo_jogo
 from carregaJogo import interface_carregamento_jogo
-from settings import desenha_cabecalho,desenha_saida
+from settings import desenha_cabecalho, desenha_saida
 
 
 def interface_exit():

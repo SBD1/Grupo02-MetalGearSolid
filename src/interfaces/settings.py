@@ -5,13 +5,15 @@ import os
 player = None
 
 
-def carrega_player(nome="", id_player = 0):
+def carrega_player(
+        nome="",
+        id_player=0
+        ):
+    global player
+
     player = Player(nome, id_player)
     print(player.id_player)
     print(player.nome)
-
-
-
 
 
 CABECALHO = """
@@ -39,9 +41,12 @@ SAIR = """
                                                                                         ||----w |
                                                                                         ||     ||
 """
+
+
 def desenha_cabecalho():
     os.system("clear")
     print(CABECALHO)
+
 
 def desenha_saida():
     os.system("clear")

@@ -1,3 +1,4 @@
+from menuMissoes import interface_menu_missoes
 from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho
 
@@ -7,8 +8,6 @@ Caso queira voltar ao menu principal, digite "voltar"."""
 
 
 def interface_novo_jogo():
-    # TRATAMENTO DE EXCEÇÕES: CASO O USUÁRIO DIGITE UM NOME JÁ EXISTENTE NO SISTEMA.
-    # PRECISA CONECTAR NO BD
 
     banco = ControlaBanco()
     desenha_cabecalho()
@@ -20,13 +19,22 @@ def interface_novo_jogo():
         player = banco.select("Player", "nome", f"nome = '{entrada_do_jogador}'")
 
         if player:
-            print("Esse nome já existe no sistema. Por favor, insira um nome válido!")
+
+            nome_player = player[0][0]
+
+            print(f"O usuário {nome_player} já existe no sistema. Por favor, insira um nome válido!")
             print("""Caso queira voltar ao menu principal, digite "voltar". """)
         else:
             banco.insert("Player", "nome", f"'{entrada_do_jogador}'")
-            break                           # Aqui, precisamos decidir se vamos direcionar o usuário direto para a interface de seleção de missões ou
-                                            # se vamos dizer que o nome foi cadastrado no sistema e, a partir disso, informá-lo de que ele deve entrar
-                                            # na interface de carregamento de jogo para acessá-lo.
+            print(f"""O player '{entrada_do_jogador}' foi cadastrado no sistema.""")
+
+            # pausar por 2 seg
+
+            print("Iniciando o jogo...")
+
+            # pausar por 3 seg
+            interface_menu_missoes()
+            break
 
         entrada_do_jogador = input(">> ")
 

@@ -1,3 +1,4 @@
+from menuMissoes import interface_menu_missoes
 from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho, carrega_player
 
@@ -20,7 +21,12 @@ def interface_carregamento_jogo():
             print("Insira um nome existente no sistema!")
             print("""Caso queira voltar ao menu principal, digite "voltar". """)
         else:
-            carrega_player(entrada_do_jogador, player[0][1])
+
+            nome_player = player[0][0]
+            id_player = player[0][1]
+
+            carrega_player(nome_player, id_player)
+            interface_menu_missoes()
 
         entrada_do_jogador = input(">> ")
 
