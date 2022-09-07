@@ -46,7 +46,8 @@ class ControlaBanco:
             colunas: str = '',
             onde: str = ''
             ):
-        print(f"update {tabela} set {colunas} where {onde};")
+        # print(f"update {tabela} set {colunas} where {onde};")
+        # comentar/descomentar a linha acima quando for necessário testar a função!
 
         self.cur.execute(f"update {tabela} set {colunas} where {onde};")
         self.conn.commit()

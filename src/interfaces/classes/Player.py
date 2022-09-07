@@ -14,7 +14,3 @@ class Player:
         self.npc = None
         self.unidades = self.conector.select("Unidade", "idUnidade, nivel, qtdSoldados, tipo, maxSoldados", f"idPlayer={id_player}")
         self.recursos = self.conector.select("Recurso", "idRecurso, qtdBruto, qtdProcessado, tipo", f"idPlayer = {id_player}")
-
-        print(self.unidades)
-        print(self.recursos)
-

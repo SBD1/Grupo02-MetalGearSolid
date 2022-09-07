@@ -1,6 +1,7 @@
 from menuMissoes import interface_menu_missoes
 from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho
+import time
 
 MENSAGEM_INTERFACE_NOVO_JOGO = """Insira o seu nome de usuário.
 Esse nome será utilizado para identificá-lo e para carregar o progresso.
@@ -26,13 +27,13 @@ def interface_novo_jogo():
             print("""Caso queira voltar ao menu principal, digite "voltar". """)
         else:
             banco.insert("Player", "nome", f"'{entrada_do_jogador}'")
-            print(f"""O player '{entrada_do_jogador}' foi cadastrado no sistema.""")
+            print(f"""O player "{entrada_do_jogador}" foi cadastrado no sistema.""")
 
-            # pausar por 2 seg
+            time.sleep(2)
 
             print("Iniciando o jogo...")
 
-            # pausar por 3 seg
+            time.sleep(3)
             interface_menu_missoes()
             break
 
