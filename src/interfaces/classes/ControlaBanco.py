@@ -11,16 +11,16 @@ class ControlaBanco:
         for a in self.select("NPC", "idNPC,nome"):
             print(a)
 
-    def processa_string(self,linhas):
-        tuplasProcessadas = []
+    def processa_string(self, linhas):
+        tuplas_processadas = []
         for linha in linhas:
-            tempColuna = []
+            coluna_processada = []
             for coluna in linha:
                 if type(coluna) is str:
                     coluna = coluna.strip()
-                tempColuna.append(coluna)
-            tuplasProcessadas.append(tuple(tempColuna))
-        return tuplasProcessadas
+                coluna_processada.append(coluna)
+            tuplas_processadas.append(tuple(coluna_processada))
+        return tuplas_processadas
     
     def select(
             self,
@@ -36,9 +36,9 @@ class ControlaBanco:
 
         self.conn.commit()
 
-        listaTuplasProcessadas = self.processa_string(self.cur.fetchall())
+        tabelas_resultantes = self.processa_string(self.cur.fetchall())
 
-        return listaTuplasProcessadas
+        return tabelas_resultantes
 
     def update(
             self,
@@ -67,7 +67,8 @@ class ControlaBanco:
             valores: str = '',
             ):
 
-        print(f"insert into {tabela} ({colunas}) values ({valores});")
+        # print(f"insert into {tabela} ({colunas}) values ({valores});")
+        # comentar/descomentar a linha acima quando for necessário testar a função!
 
         self.cur.execute(f"insert into {tabela} ({colunas}) values ({valores});")
         self.conn.commit()
