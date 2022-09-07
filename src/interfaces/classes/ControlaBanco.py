@@ -11,6 +11,7 @@ class ControlaBanco:
         for a in self.select("NPC", "idNPC,nome"):
             print(a)
 
+
     def processa_string(self,linhas):
         tuplasProcessadas = []
         for linha in linhas:
@@ -51,8 +52,15 @@ class ControlaBanco:
         self.cur.execute(f"update {tabela} set {colunas} where {onde};")
         self.conn.commit()
 
-    def delete(self):
-        pass
+    def delete(
+            self,
+            tabela: str,
+            onde: str
+            ):
+
+        self.cur.execute(f"delete from {tabela} where {onde};")
+        self.conn.commit()
+
 
     def insert(
             self,

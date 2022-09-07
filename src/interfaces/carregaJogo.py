@@ -1,5 +1,5 @@
 from classes.ControlaBanco import ControlaBanco
-from settings import desenha_cabecalho
+from settings import desenha_cabecalho, carrega_player
 
 MENSAGEM_INTERFACE_CARREGAMENTO = """Insira o seu nome de usuário.
 Caso queira voltar ao menu principal, digite "voltar"."""
@@ -14,13 +14,13 @@ def interface_carregamento_jogo():
 
     entrada_do_jogador = input(">> ")
     while entrada_do_jogador != "voltar":
-        nome = banco.select("Player", "nome", f"nome = '{entrada_do_jogador}'")
+        player = banco.select("Player", "nome, idPlayer", f"nome = '{entrada_do_jogador}'")
 
-        if not nome:
+        if not player:
             print("Insira um nome existente no sistema!")
             print("""Caso queira voltar ao menu principal, digite "voltar". """)
         else:
-            print(nome)
+            carrega_player(entrada_do_jogador, player[0][1])
 
         entrada_do_jogador = input(">> ")
 

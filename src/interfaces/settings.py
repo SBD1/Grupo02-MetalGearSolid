@@ -2,9 +2,13 @@ from classes.Player import Player
 
 import os
 
-global player = None
-def carrega_player(nome=""):
-    player = Player(nome)
+player = None
+
+
+def carrega_player(nome="", id_player = 0):
+    player = Player(nome, id_player)
+    print(player.id_player)
+    print(player.nome)
 
 
 
