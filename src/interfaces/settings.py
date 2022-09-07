@@ -1,4 +1,14 @@
+from classes.Player import Player
+
 import os
+
+global player = None
+def carrega_player(nome=""):
+    player = Player(nome)
+
+
+
+
 
 CABECALHO = """
                                      ____________________________________________________________________________________________________________
@@ -25,7 +35,6 @@ SAIR = """
                                                                                         ||----w |
                                                                                         ||     ||
 """
-
 def desenha_cabecalho():
     os.system("clear")
     print(CABECALHO)

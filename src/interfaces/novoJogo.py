@@ -1,4 +1,4 @@
-from ControlaBanco import ControlaBanco
+from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho
 
 MENSAGEM_INTERFACE_NOVO_JOGO = """Insira o seu nome de usuário.
