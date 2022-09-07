@@ -13,7 +13,7 @@ BEGIN
 END;
 $atualiza_playerpegaprojeto$ language plpgsql;
 
-CREATE OR REPLACE TRIGGER atualiza_playerpegaprojeto AFTER INSERT ON PlayerPegaProjeto
+CREATE OR REPLACE TRIGGER atualiza_playerpegaprojeto BEFORE INSERT ON PlayerPegaProjeto
 	FOR EACH ROW EXECUTE FUNCTION atualiza_playerpegaprojeto();
 
 
@@ -149,9 +149,8 @@ BEGIN
 	RETURNING idNpc into novoIdNpc;
 
 	-- atibui Big Boss ao Player;
---	UPDATE Player set idNpc = novoIdNpc WHERE idPlayer = NEW.idPlayer;
-	NEW.idNpc = novoIdNpc;
-	RETURN NEW;
+	UPDATE Player set idNpc = novoIdNpc WHERE idPlayer = NEW.idPlayer;
+	RETURN NULL;
 END;
 $insert_player$ LANGUAGE plpgsql;
 
