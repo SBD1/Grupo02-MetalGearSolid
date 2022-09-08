@@ -5,9 +5,9 @@
 \i docker-entrypoint-initdb.d/inserts/Terreno.sql
 \i docker-entrypoint-initdb.d/inserts/Missao.sql
 \i docker-entrypoint-initdb.d/inserts/Mapa.sql
-\i docker-entrypoint-initdb.d/inserts/Objetivo.sql
 \i docker-entrypoint-initdb.d/inserts/UniformeCamuflaTerreno.sql
 \i docker-entrypoint-initdb.d/inserts/NPC.sql
 \i docker-entrypoint-initdb.d/inserts/NPCEquipaArma.sql
 \i docker-entrypoint-initdb.d/inserts/MapaTemMapa.sql
 \i docker-entrypoint-initdb.d/inserts/MapaPosicionaRecurso.sql
+\i docker-entrypoint-initdb.d/inserts/Objetivo.sql
