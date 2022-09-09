@@ -20,12 +20,17 @@ def detalhar_missao(numero_da_missao, player: Player):
 
     print("Objetivos principais: ")
 
-    for objetivo in objetivos_principais:
-        print("\t - " + objetivo[0])
+    printa_descricao(objetivos_principais)
 
     print("Objetivos secundarios: ")
 
-    for objetivo in objetivos_secundarios:
-        print("\t - " + objetivo[0])
+    printa_descricao(objetivos_secundarios)
 
     input("PARAAAA")
+
+
+def printa_descricao(objetivos):
+    for objetivo in objetivos:
+        descricao_objetivo = objetivo[0]
+        print("\t - " + descricao_objetivo)
+
