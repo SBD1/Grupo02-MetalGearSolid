@@ -31,14 +31,14 @@ def interface_novo_jogo():
             print(f"""O player "{entrada_do_jogador}" foi cadastrado no sistema.""")
 
             dados_player = banco.select("player", "nome, idPlayer", f"nome = '{entrada_do_jogador}' ")
-            time.sleep(2)
+            # time.sleep(2)
 
             nome_player = dados_player[0][0]
             id_player = dados_player[0][1]
 
             print("Iniciando o jogo...")
 
-            time.sleep(3)
+            # time.sleep(3)
             interface_menu_missoes(Player(nome_player,id_player))
             break
 

@@ -28,7 +28,7 @@ def interface_carregamento_jogo():
             id_player = player[0][1]
 
             print(f"""Carregando o jogo do usuário "{nome_player}"...""")
-            time.sleep(2)
+            # time.sleep(2)
 
             interface_menu_missoes(Player(nome_player, id_player))
 
