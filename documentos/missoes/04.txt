@@ -1,5 +1,5 @@
 Título: Comando e controle de guerra.
-Descrição: Destroy the Soviet comms equipment to prevent reinforcements being sent between outposts.
+Descrição: Destrua os equipamentos de comunicação soviéticos para previnir o evio de pedidos de reforços entre postos avançados.
 Terreno: Deserto.
 Objetivos:
 	Principais:

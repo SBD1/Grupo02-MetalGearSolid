@@ -1,5 +1,5 @@
 Título: Seguindo a trilha
-Descrição: The commander of a PF, known as the Major, has been spreading a rumor about selling nuclear weapons. Tail his subordinate, and eliminate the Major.
+Descrição: O comandante das forças de pacificação, conhecido como O Major, está espalhando rumores de estar vendendo armas nucleares. Fique na cola, siga, seu subordinado e elimine O Major.
 Terreno: África central.
 Objetivos:
 	Principais:

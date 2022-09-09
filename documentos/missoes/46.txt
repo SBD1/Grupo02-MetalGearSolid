@@ -1,5 +1,5 @@
 Título: O homem que vendeu o mundo
-Descrição: Escape the hospital.
+Descrição: Fuja do hospital.
 Objetivos:
 	Principais:
 		Escape do hospital

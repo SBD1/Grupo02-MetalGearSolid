@@ -1,5 +1,5 @@
 Título: Caminho do herói.
-Descrição: Eliminate the Spetsnaz detachment commander secretly involved in the scorched earth operation in Afghanistan. The target and his recon unit have occupied Shago Village and are ready to meet an assault.
+Descrição: Elimine o comandante de destamento de Spetsnaz que está secretamente envolvido na operação Terra Queimada no Afeganistão. Esse alvo e sua unidade de reconhecimento ocuparam a vila Shago e estão preparados para enfrentar um ataque.
 Terreno: Deserto.
 Objetivos:
 	Principais:

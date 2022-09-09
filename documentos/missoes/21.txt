@@ -1,5 +1,5 @@
 Título: Economia de guerra
-Descrição: Eliminate the CFA official stationed at Nova Braga Airport. He is due to conduct an inspection with a visiting arms dealer, so expect heavy security.
+Descrição: Elimine o oficial contratante de forças africanas estacionado np aeroporto de Nova Braga. Ele está responsável por conduzir uma inspeção com um traficante de armas, então, espere uma segurança reforçada.
 Terreno: Industrial.
 Objetivos:
 	Principais:

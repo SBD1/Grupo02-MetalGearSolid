@@ -1,5 +1,5 @@
 Título: Code Talker
-Descrição: Make contact with and extract Code Talker, the old man who knows how to treat the pathogen affecting Mother Base. In addition to the local PF guarding the mansion where he is located, an unidentified force has been observed operating in the area.
+Descrição: Faça contato e extraia o Code Talker, um idoso que sabe como tratar o patógeno que afeta a Base Mãe. A mansão onde ele está localizado é guardada pela força de pacificação e, além disso, observou-se uma força não identificada operando na área.
 Terreno: África central.
 Objetivos:
 	Principais:

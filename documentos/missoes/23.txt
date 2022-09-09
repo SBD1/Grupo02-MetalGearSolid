@@ -1,5 +1,5 @@
 Título: The White Mamba
-Descrição: Eliminate the militants at Masa Village who have been pillaging nearby settlements. They are said to all be children. Extract their commander, the "White Mamba", and the group will fall apart.
+Descrição: Elimine os militantes na vila Mesa que estão saqueando asentamentos próximos. É dito que todos são crianças. Extraia seu comandante, conhecido como "White Mamba", e o grupo será desfeito.
 Terreno: África central.
 Objetivos:
 	Principais:

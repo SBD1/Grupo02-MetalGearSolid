@@ -1,14 +1,14 @@
 INSERT INTO Missao (titulo, descricao)
 VALUES
-('Prólogo, Despertar.','Escape the hospital.'),
-('Membros fantasmas.','Rescue your old partner, Kazuhira Miller. He has been captured by the Soviets and is being interrogated at Ghwandai Town.'),
-('Caminho do herói.','Eliminate the Spetsnaz detachment commander secretly involved in the scorched earth operation in Afghanistan. The target and his recon unit have occupied Shago Village and are ready to meet an assault.'),
-('Comando e controle de guerra.','Destroy the Soviet comms equipment to prevent reinforcements being sent between outposts.'),
-('Língua Franca','Tail the Afrikaans interpreter working with the interrogator at Kiziba Camp, and rescue the British prisoner known as the Viscount.'),
-('Seguindo a trilha','The commander of a PF, known as the Major, has been spreading a rumor about selling nuclear weapons. Tail his subordinate, and eliminate the Major.'),
-('Economia de guerra','Eliminate the CFA official stationed at Nova Braga Airport. He is due to conduct an inspection with a visiting arms dealer, so expect heavy security.'),
-('The White Mamba','Eliminate the militants at Masa Village who have been pillaging nearby settlements. They are said to all be children. Extract their commander, the "White Mamba", and the group will fall apart.'),
-('Code Talker','Make contact with and extract Code Talker, the old man who knows how to treat the pathogen affecting Mother Base. In addition to the local PF guarding the mansion where he is located, an unidentified force has been observed operating in the area.'),
-('Skull Face','Skull Face has occupied the secret Soviet weapon design bureau OKB Zero, and advanced his plan to its final phase. Prevent the combat deployment of the upright bipedal weapon Sahelanthropus, and take vengeance on Skull Face.'),
-('Legado amaldiçoado','Recover the two containers loaded with Code Talker''s research materials. The containers are hidden in the jungle, and XOF choppers are en route to collect them.'),
-('O homem que vendeu o mundo','Escape the hospital.');
+('Prólogo, Despertar.','Fuja do hospital.'),
+('Membros fantasmas.','Resgate o seu antigo parceiro, Kazuhira Miller. Ele foi capturado pelos soviéticos e está sendo interrogado na Ghwandai Town.'),
+('Caminho do herói.','Elimine o comandante de destamento de Spetsnaz que está secretamente envolvido na operação Terra Queimada no Afeganistão. Esse alvo e sua unidade de reconhecimento ocuparam a vila Shago e estão preparados para enfrentar um ataque.'),
+('Comando e controle de guerra.','Destrua os equipamentos de comunicação soviéticos para previnir o evio de pedidos de reforços entre postos avançados.'),
+('Língua Franca','Fique na cola, siga, o intérprete dos africâners que trabalha conjuntamente com o interrogador no campo de Kiziba e salve o prisioneiro britânico conhecido como visconde.'),
+('Seguindo a trilha','O comandante das forças de pacificação, conhecido como O Major, está espalhando rumores de estar vendendo armas nucleares. Fique na cola, siga, seu subordinado e elimine O Major.'),
+('Economia de guerra','Elimine o oficial contratante de forças africanas estacionado np aeroporto de Nova Braga. Ele está responsável por conduzir uma inspeção com um traficante de armas, então, espere uma segurança reforçada'),
+('The White Mamba','Elimine os militantes na vila Mesa que estão saqueando asentamentos próximos. É dito que todos são crianças. Extraia seu comandante, conhecido como "White Mamba", e o grupo será desfeito.'),
+('Code Talker','Faça contato e extraia o Code Talker, um idoso que sabe como tratar o patógeno que afeta a Base Mãe. A mansão onde ele está localizado é guardada pela força de pacificação e, além disso, observou-se uma força não identificada operando na área.'),
+('Skull Face','Skull Face ocupou o departamento secreto de design de armas soviéticas em OKB Zero e avançou seu plano para a fase final. Previna a mobilização de combate da arma bípede vertical Sahelanthropus e tenha sua vingança com Skull Face.'),
+('Legado amaldiçoado','Recupere dois containers carregado com os materiais de pesquisa do Code Talker. Esses containers estão escondidos da floresta e helicópteros XOF estão a caminho para coletá-los.'),
+('O homem que vendeu o mundo','Fuja do hospital.');

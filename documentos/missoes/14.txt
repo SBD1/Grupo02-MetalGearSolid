@@ -1,5 +1,5 @@
 Título: Língua Franca
-Descrição:Tail the Afrikaans interpreter working with the interrogator at Kiziba Camp, and rescue the British prisoner known as the Viscount.
+Descrição:Fique na cola, siga, o intérprete dos africâners que trabalha conjuntamente com o interrogador no campo de Kiziba e salve o prisioneiro britânico conhecido como visconde.
 Terreno: África central.
 Objetivos:
 	Principais:
