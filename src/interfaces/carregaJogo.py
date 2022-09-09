@@ -1,6 +1,7 @@
 from menuMissoes import interface_menu_missoes
 from classes.ControlaBanco import ControlaBanco
-from settings import desenha_cabecalho, carrega_player
+from classes.Player import Player
+from settings import desenha_cabecalho
 import time
 
 MENSAGEM_INTERFACE_CARREGAMENTO = """Insira o seu nome de usuário.
@@ -28,10 +29,9 @@ def interface_carregamento_jogo():
 
             print(f"""Carregando o jogo do usuário "{nome_player}"...""")
             time.sleep(2)
-            carrega_player(nome_player, id_player)
 
             while True:  # mudar isso aqui dps, obviamente
-                interface_menu_missoes()
+                interface_menu_missoes(Player(nome_player, id_player))
 
             break
 

@@ -1,19 +1,4 @@
-from classes.Player import Player
-
 import os
-
-player = None
-
-
-def carrega_player(
-        nome="",
-        id_player=0
-        ):
-    global player  # isso aqui ainda não tá certo
-
-    player = Player(nome, id_player)
-    print(player.id_player)
-    print(player.nome)
 
 
 CABECALHO = """

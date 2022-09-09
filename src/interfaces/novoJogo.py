@@ -1,5 +1,6 @@
 from menuMissoes import interface_menu_missoes
 from classes.ControlaBanco import ControlaBanco
+from classes.Player import Player
 from settings import desenha_cabecalho
 import time
 
@@ -17,7 +18,7 @@ def interface_novo_jogo():
 
     while entrada_do_jogador != "voltar":
 
-        player = banco.select("Player", "nome", f"nome = '{entrada_do_jogador}'")
+        player = banco.select("Player", "nome, idPlayer", f"nome = '{entrada_do_jogador}'")
 
         if player:
 
@@ -29,12 +30,16 @@ def interface_novo_jogo():
             banco.insert("Player", "nome", f"'{entrada_do_jogador}'")
             print(f"""O player "{entrada_do_jogador}" foi cadastrado no sistema.""")
 
+            dados_player = banco.select("player", "nome, idPlayer", f"nome = '{entrada_do_jogador}' ")
             time.sleep(2)
+
+            nome_player = dados_player[0][0]
+            id_player = dados_player[0][1]
 
             print("Iniciando o jogo...")
 
             time.sleep(3)
-            interface_menu_missoes()
+            interface_menu_missoes(Player(nome_player,id_player))
             break
 
         entrada_do_jogador = input(">> ")
