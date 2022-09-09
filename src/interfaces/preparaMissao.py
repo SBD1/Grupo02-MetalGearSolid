@@ -8,6 +8,9 @@ def prepara_missao(player: Player, id_missao: int):
     desenha_cabecalho()
     banco = ControlaBanco()
 
-    print("idmissao = " + str(id_missao))
-    print(banco.select("Mapa", "idMapa, nome", f"idMissao = {id_missao}"))
+    mapas_missao = banco.select("Mapa", "idMapa, nome", f"idMissao = {id_missao}")
 
+    for mapa in mapas_missao:
+        # terreno = banco.select("Terreno", "", "")
+        # temos que mexer no DDL antes de mexer aqui...
+        pass
