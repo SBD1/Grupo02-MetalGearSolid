@@ -8,9 +8,9 @@ onde numero_da_missao é o número da missão escolhida. """
 
 
 def interface_menu_missoes():
-
+    desenha_cabecalho()
     banco = ControlaBanco()
-    missoes_disponiveis = banco.select("missao", "titulo, descricao", "idMissao = 2")
+    missoes_disponiveis = banco.select("missao", "titulo, descricao", "idMissao = 1")
 
     print("As seguintes missões estão disponíveis: ")
     numero_da_missao: int = 1
