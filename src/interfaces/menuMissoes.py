@@ -3,22 +3,20 @@ from settings import desenha_cabecalho, player
 import time
 
 MENSAGEM_INTERFACE_MENU_MISSOES = """Caso queira voltar ao menu principal, digite "voltar".
-Caso queira ver os detalhes de uma missão específica e/ou jogá-la, digite "detalhar numero_da_missao",
-onde numero_da_missao é o número da missão escolhida. """
+Caso queira ver os detalhes de uma missão específica e/ou jogá-la, digite "detalhar numero_da_missao" """
 
 
 def interface_menu_missoes():
+    # select nomeCodinome from PlayerCumpreMissao as pcm join Estatistica as e on pcm.idEstatistica = e.idEstatistica where idPlayer = 1 and idMissao = 1;
     desenha_cabecalho()
     banco = ControlaBanco()
-    missoes_disponiveis = banco.select("missao", "titulo, descricao", "idMissao = 1")
+    missoes_disponiveis = banco.select("missao", "titulo,idMissao")
 
-    print("As seguintes missões estão disponíveis: ")
-    numero_da_missao: int = 1
+    print("Lista de missões:")
 
     for missao in missoes_disponiveis:
         titulo_missao = missao[0]
-        descricao_missao = missao[1]
-
+        print("----------------------------------------------------------------------------------------------------------------------------------------------")
         print(f"Missão #{numero_da_missao}: {titulo_missao}")
         print(f"Descrição: {descricao_missao}\n")
 
@@ -26,6 +24,7 @@ def interface_menu_missoes():
 
     quantidade_de_missoes_disponiveis = numero_da_missao - 1
 
+    print("----------------------------------------------------------------------------------------------------------------------------------------------")
     print(MENSAGEM_INTERFACE_MENU_MISSOES)
 
     entrada_do_jogador = input(">> ")
@@ -40,7 +39,7 @@ def interface_menu_missoes():
         print("usuario quer sair")
         time.sleep(1)
     else:
-        print("usuario quer detalhar as missões")
+        detalhar_missao()
         time.sleep(1)
 
 
