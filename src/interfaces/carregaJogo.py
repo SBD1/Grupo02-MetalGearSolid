@@ -30,8 +30,8 @@ def interface_carregamento_jogo():
             print(f"""Carregando o jogo do usuário "{nome_player}"...""")
             time.sleep(2)
 
-            while True:  # mudar isso aqui dps, obviamente
-                interface_menu_missoes(Player(nome_player, id_player))
+
+            interface_menu_missoes(Player(nome_player, id_player))
 
             break
 

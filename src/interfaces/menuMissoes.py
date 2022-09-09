@@ -1,6 +1,7 @@
 from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho
 from classes.Player import Player
+from detalhaMissao import detalhar_missao
 import time
 
 MENSAGEM_INTERFACE_MENU_MISSOES = """Caso queira voltar ao menu principal, digite "voltar".
@@ -52,7 +53,7 @@ def interface_menu_missoes(player: Player):
         print("usuario quer sair")
         time.sleep(1)
     else:
-        detalhar_missao()
+        detalhar_missao(int(entrada_do_jogador[1]), player)  # refatorar pelo amor de Deus
         time.sleep(1)
 
 
