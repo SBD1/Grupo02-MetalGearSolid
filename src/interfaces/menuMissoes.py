@@ -53,7 +53,8 @@ def interface_menu_missoes(player: Player):
         print("usuario quer sair")
         time.sleep(1)
     else:
-        detalhar_missao(int(entrada_do_jogador[1]), player)  # refatorar pelo amor de Deus
+        missao_escolhida = int(entrada_do_jogador[1])
+        detalhar_missao(missao_escolhida, player)
         time.sleep(1)
 
 
