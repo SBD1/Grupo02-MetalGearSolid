@@ -2,6 +2,7 @@ from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho
 from classes.Player import Player
 from listaEstatisticas import lista_estatisticas
+from preparaMissao import prepara_missao
 import time
 
 
@@ -35,7 +36,10 @@ def detalhar_missao(numero_da_missao, player: Player):
     entrada_do_jogador = trata_entrada(entrada_do_jogador)
 
     #  a função abaixo só deve ser chamada quando a entrada do jogador for 'estatisticas'.
-    lista_estatisticas(numero_da_missao, player)
+    # lista_estatisticas(numero_da_missao, player)
+
+    # a função abaixo só deve ser chamada quando a entrada do jogador for 'iniciar'.
+    prepara_missao(player, numero_da_missao)
 
 
 def printa_descricao(objetivos):
