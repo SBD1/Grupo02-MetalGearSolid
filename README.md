@@ -1,4 +1,5 @@
 # Metal Gear Solid V
+Como executar o [jogo](https://youtu.be/GejEw-iXLqk).
 ## Sobre o jogo
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
