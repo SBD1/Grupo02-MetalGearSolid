@@ -5,8 +5,12 @@ from detalhaMissao import detalhar_missao
 import time
 
 MENSAGEM_INTERFACE_MENU_MISSOES = """Caso queira voltar ao menu principal, digite "voltar".
-Caso queira ver os detalhes de uma missão específica e/ou jogá-la, digite "detalhar numero_da_missao" """
+Caso queira ver os detalhes de uma missão específica e/ou jogá-la, digite "numero_da_missao" """
 
+
+ENTRADAS_ACEITAS = {
+    'voltar': False,
+}
 
 def interface_menu_missoes(player: Player):
 
@@ -34,6 +38,7 @@ def interface_menu_missoes(player: Player):
         else:
             print("Rank = --- ")
 
+        ENTRADAS_ACEITAS[str(numero_da_missao)] = numero_da_missao
         numero_da_missao = numero_da_missao + 1
 
     quantidade_de_missoes_disponiveis = numero_da_missao - 1
@@ -41,31 +46,13 @@ def interface_menu_missoes(player: Player):
     print("----------------------------------------------------------------------------------------------------------------------------------------------")
     print(MENSAGEM_INTERFACE_MENU_MISSOES)
 
-    entrada_do_jogador = input(">> ")
-    entrada_do_jogador = entrada_do_jogador.split()
-
-    while trata_entrada(entrada_do_jogador, quantidade_de_missoes_disponiveis):
-        print("Insira uma entrada válida!")
-        entrada_do_jogador = input(">> ")
-        entrada_do_jogador = entrada_do_jogador.split()
-
-    if entrada_do_jogador[0] == "voltar":
-        print("usuario quer sair")
-        time.sleep(1)
-    else:
-        missao_escolhida = int(entrada_do_jogador[1])
-        detalhar_missao(missao_escolhida, player)
-        time.sleep(1)
-
-
-def trata_entrada(entrada, quantidade_de_missoes_disponiveis):  # função que trata a entrada do jogador
-    if len(entrada) > 2: # caso haja mais de 2 strings na entrada
-        return True
-    if entrada[0] != "voltar" and entrada[0] != "detalhar":
-        return True
-
-    if len(entrada) == 1:  # se a entrada for voltar ou detalhar, vai entrar nesse if. Nesse caso, devemos sair do loop.
-        return False
-
-    if int(entrada[1]) < 1 or int(entrada[1]) > quantidade_de_missoes_disponiveis:   # caso o numero da missão não esteja dentro do escopo aceito
-        return True
+    
+    while True:
+        try:
+            entrada_do_jogador = input(">> ")
+            if type(ENTRADAS_ACEITAS[entrada_do_jogador]) is int:
+                detalhar_missao(ENTRADAS_ACEITAS[entrada_do_jogador],player)
+            else:
+                break
+        except KeyError:
+            print("Entrada invalida!!!")
