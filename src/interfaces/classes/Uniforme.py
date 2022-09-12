@@ -1,11 +1,12 @@
 from classes.ControlaBanco import ControlaBanco
 
+
 class Uniforme:
     def __init__(self, id_uniforme):
         self.id_uniforme = id_uniforme
         self.conector = ControlaBanco()
 
-        linha = self.conector.select("Uniforme", "nome,defesa")[0]
+        linha = self.conector.select("Uniforme", "nome,defesa", f"idUniforme = {id_uniforme}")[0]
         self.nome = linha[0]
         self.defesa = linha[1]
 

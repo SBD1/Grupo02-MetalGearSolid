@@ -1,6 +1,7 @@
 from classes.Player import Player
 from classes.ControlaBanco import ControlaBanco
 from classes.Arma import Arma
+from classes.Uniforme import Uniforme
 from settings import desenha_cabecalho
 import time
 
@@ -37,22 +38,23 @@ def prepara_missao(player: Player, id_missao: int):
         if entrada_do_jogador == 'primaria':
             player = equipa_primaria(player)
             continue
+
         elif entrada_do_jogador == 'secundaria':
             player = equipa_secundaria(player)
             continue
+
         elif entrada_do_jogador == 'uniforme':
-            pass
+            player = equipa_uniforme(player)
+            continue
+
         elif entrada_do_jogador == 'iniciar':
             pass
-
-       # print("Se você deseja iniciar o jogo, digite 'iniciar'. ")
-       # print("S")
 
 
 def equipa_primaria(player: Player):
     conector = ControlaBanco()
     lista_id_armas_primarias = conector.select("Arma", "idArma", """tipo= 'PRIMARIA'""")
-    print("\n\tListagem Arma")
+    print("\n\tListagem Armas Primárias")
     time.sleep(1)
     for id_arma in lista_id_armas_primarias:
         _id_arma = id_arma[0]
@@ -83,7 +85,7 @@ def equipa_primaria(player: Player):
 def equipa_secundaria(player: Player):
     conector = ControlaBanco()
     lista_id_armas_secundarias = conector.select("Arma", "idArma", """tipo= 'SECUNDARIA'""")
-    print("\n\tListagem Arma")
+    print("\n\tListagem Armas Secundárias")
     time.sleep(1)
     for id_arma in lista_id_armas_secundarias:
         _id_arma = id_arma[0]
@@ -106,6 +108,36 @@ def equipa_secundaria(player: Player):
 
     except ValueError:
         print("Digite ids válidos!")
+        time.sleep(2)
+
+    return player
+
+
+def equipa_uniforme(player: Player):
+    conector = ControlaBanco()
+    lista_uniformes = conector.select("Uniforme", "idUniforme,nome,defesa")
+    print("\n\tListagem Uniformes")
+    time.sleep(1)
+    for uniforme in lista_uniformes:
+        id_uniforme = uniforme[0]
+        uniforme = Uniforme(id_uniforme)
+        uniforme.listar()
+        time.sleep(2)
+
+    print("Digite um id_uniforme para selecionar o uniforme! ")
+    time.sleep(1)
+    uniforme_escolhido = input(">> ").split()
+
+    try:
+        lista_id = [int(i) for i in uniforme_escolhido]
+        if len(lista_id) > 1:
+            print("Digite, no máximo, 1 id!")
+            time.sleep(2)
+        else:
+            player.npc.uniforme = Uniforme(lista_id[0])
+
+    except ValueError:
+        print("Digite um id válido!")
         time.sleep(2)
 
     return player
