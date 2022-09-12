@@ -15,12 +15,13 @@ Digite: 'iniciar' para iniciar a missao.
 
 ENTRADAS_ACEITAS = [ 'primaria', 'secundaria', 'uniforme', 'iniciar', 'voltar']
 
+
 def prepara_missao(player: Player, id_missao: int):
     entrada_do_jogador = ''
     while entrada_do_jogador != 'voltar':
         desenha_cabecalho()
         print(opcoes)
-        player.npc.lista_equpamento()
+        player.npc.lista_equipamento()
         
         while not entrada_do_jogador in ENTRADAS_ACEITAS:
             entrada_do_jogador = input(">> ").strip()
