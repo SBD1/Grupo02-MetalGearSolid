@@ -7,7 +7,9 @@ import time
 
 
 def detalhar_missao(numero_da_missao, player: Player):
+    time.sleep(0.2)
     desenha_cabecalho()
+    time.sleep(0.3)
 
     banco = ControlaBanco()
     missao = banco.select("missao", "titulo, descricao", f"idMissao = {numero_da_missao}")
@@ -18,19 +20,23 @@ def detalhar_missao(numero_da_missao, player: Player):
     descricao_missao = missao[0][1]
 
     print(f"Título: {titulo_missao}")
+    time.sleep(0.2)
     print(f"Descrição: {descricao_missao}")
-
+    time.sleep(0.2)
     print("Objetivos principais: ")
-
+    time.sleep(0.2)
     printa_descricao(objetivos_principais)
-
+    time.sleep(0.2)
     print("Objetivos secundarios: ")
-
+    time.sleep(0.2)
     printa_descricao(objetivos_secundarios)
-
+    time.sleep(0.2)
     print("""Para iniciar a missão, digite "iniciar". """)
+    time.sleep(0.2)
     print("""Para ver as estatísticas de cumprimento da missão, digite "estatisticas".""")
+    time.sleep(0.2)
     print("""Para voltar digite 'voltar'. """)
+    time.sleep(0.2)
 
     while True:
         entrada_do_jogador = input(">> ").strip()
@@ -45,10 +51,12 @@ def detalhar_missao(numero_da_missao, player: Player):
             break
         else:
             print("Entrada invalida")
+            time.sleep(0.3)
 
 
 def printa_descricao(objetivos):
     for objetivo in objetivos:
+        time.sleep(0.3)
         descricao_objetivo = objetivo[0]
         print("\t - " + descricao_objetivo)
     print()

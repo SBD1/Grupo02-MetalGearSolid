@@ -11,6 +11,7 @@ class Uniforme:
         self.defesa = linha[1]
 
     def listar(self):
+        print("UNIFORME")
         print("ID #" + str(self.id_uniforme))
         print("Nome: " + self.nome)
         print("Defesa: " + str(self.defesa))
