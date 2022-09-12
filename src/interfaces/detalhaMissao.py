@@ -30,24 +30,25 @@ def detalhar_missao(numero_da_missao, player: Player):
 
     print("""Para iniciar a missão, digite "iniciar". """)
     print("""Para ver as estatísticas de cumprimento da missão, digite "estatisticas".""")
+    print("""Para voltar digite 'voltar'. """)
 
-    entrada_do_jogador = input(">> ").split()
+    while True:
+        entrada_do_jogador = input(">> ").strip()
 
-    entrada_do_jogador = trata_entrada(entrada_do_jogador)
-
-    #  a função abaixo só deve ser chamada quando a entrada do jogador for 'estatisticas'.
-    # lista_estatisticas(numero_da_missao, player)
-
-    # a função abaixo só deve ser chamada quando a entrada do jogador for 'iniciar'.
-    prepara_missao(player, numero_da_missao)
+        if entrada_do_jogador == "estatisticas" :
+            lista_estatisticas(numero_da_missao, player)
+            break
+        elif entrada_do_jogador == "iniciar":
+            prepara_missao(player, numero_da_missao)
+            break
+        elif entrada_do_jogador == "voltar":
+            break
+        else:
+            print("Entrada invalida")
 
 
 def printa_descricao(objetivos):
     for objetivo in objetivos:
         descricao_objetivo = objetivo[0]
         print("\t - " + descricao_objetivo)
-
-
-def trata_entrada(entrada): # funcao ainda não pensada
-    return entrada
-
+    print()

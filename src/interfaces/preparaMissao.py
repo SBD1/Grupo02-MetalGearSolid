@@ -3,14 +3,33 @@ from classes.ControlaBanco import ControlaBanco
 from settings import desenha_cabecalho
 import time
 
+opcoes = '''
+Digite: 'voltar' para sair.
+
+Digite: 'primaria' para selecionar 2 armas primarias
+Digite: 'secundaria' para selecionar 2 armas secundarias
+Digite: 'uniforme' para selecionar um uniforme
+
+Digite: 'iniciar' para iniciar a missao.
+'''
+
+ENTRADAS_ACEITAS = [ 'primaria', 'secundaria', 'uniforme', 'iniciar', 'voltar']
 
 def prepara_missao(player: Player, id_missao: int):
-    desenha_cabecalho()
-    banco = ControlaBanco()
-
-    mapas_missao = banco.select("Mapa", "idMapa, nome", f"idMissao = {id_missao}")
-
-    for mapa in mapas_missao:
-        # terreno = banco.select("Terreno", "", "")
-        # temos que mexer no DDL antes de mexer aqui...
-        pass
+    entrada_do_jogador = ''
+    while entrada_do_jogador != 'voltar':
+        desenha_cabecalho()
+        print(opcoes)
+        player.npc.lista_equpamento()
+        
+        while not entrada_do_jogador in ENTRADAS_ACEITAS:
+            entrada_do_jogador = input(">> ").strip()
+        
+        if entrada_do_jogador == 'primaria':
+            pass
+        elif entrada_do_jogador == 'secundaria':
+            pass
+        elif entrada_do_jogador == 'uniforme':
+            pass
+        elif entrada_do_jogador == 'iniciar':
+            pass

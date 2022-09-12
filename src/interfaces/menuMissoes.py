@@ -36,7 +36,7 @@ def interface_menu_missoes(player: Player):
         if rank:
             print(f"Rank: {rank[0][0]}")
         else:
-            print("Rank = --- ")
+            print("Rank : --- ")
 
         ENTRADAS_ACEITAS[str(numero_da_missao)] = numero_da_missao
         numero_da_missao = numero_da_missao + 1
@@ -52,6 +52,7 @@ def interface_menu_missoes(player: Player):
             entrada_do_jogador = input(">> ")
             if type(ENTRADAS_ACEITAS[entrada_do_jogador]) is int:
                 detalhar_missao(ENTRADAS_ACEITAS[entrada_do_jogador],player)
+                break
             else:
                 break
         except KeyError:
