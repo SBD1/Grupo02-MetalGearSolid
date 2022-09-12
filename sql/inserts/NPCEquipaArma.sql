@@ -1,7 +1,7 @@
 INSERT INTO NPCEquipaArma
 (idNPC,idArma)
 VALUES
-(1,5),
+(1,4),
 (2,4),
 (3,1),
 (4,3),
