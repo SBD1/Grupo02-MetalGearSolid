@@ -18,7 +18,9 @@ class Arma:
         self.tipo = self.linha[9]
 
     def listar(self):
-        print("\n\tListagem Arma")
+
+        print("id : " + str(self.id_arma))
+
         print("\nArma: {}\nDano: {}\nTotal balas: {}\nProbabilidade de Acerto: {}%\nTaxa de disparo: {}\nTamanho do pente: {}\nPenetracao: {}\nMunicao Letal: {}\nTipo da arma: {}\n".format(
         self.nome,
         self.dano,

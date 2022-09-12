@@ -26,9 +26,9 @@ class NPC:
                 self.armasSecundarias.append(arma)
 
     def lista_equipamento(self):
-        print("\tListagem NPC\n")
-        print("nome = " + self.nome)
-        print("qtd_vida = " + str(self.qtd_vida))
+        #  print("\tListagem NPC\n")
+        #  print("nome = " + self.nome)
+        #  print("qtd_vida = " + str(self.qtd_vida))
         self.uniforme.listar()
 
         for p in self.armasPrimarias:
