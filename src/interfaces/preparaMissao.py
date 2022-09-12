@@ -21,6 +21,8 @@ def prepara_missao(player: Player, id_missao: int):
     while entrada_do_jogador != 'voltar':
         desenha_cabecalho()
         print(opcoes)
+        print("\t\tEquipamentos atuais:")
+        print("-----------------------------------------------------------------------------------")
         player.npc.lista_equipamento()
         
         while not entrada_do_jogador in ENTRADAS_ACEITAS:

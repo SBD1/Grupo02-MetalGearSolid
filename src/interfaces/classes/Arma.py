@@ -17,6 +17,16 @@ class Arma:
         self.municao_letal = self.linha[8]
         self.tipo = self.linha[9]
 
-        print(self.linha)
-        time.sleep(100)
-
+    def listar(self):
+        print("\n\tListagem Arma")
+        print("\nArma: {}\nDano: {}\nTotal balas: {}\nProbabilidade de Acerto: {}%\nTaxa de disparo: {}\nTamanho do pente: {}\nPenetracao: {}\nMunicao Letal: {}\nTipo da arma: {}\n".format(
+        self.nome,
+        self.dano,
+        self.tamanho_pente,
+        self.probabilidade_acerto,
+        self.taxa_disparo,
+        self.max_balas,
+        self.penetracao,
+        self.municao_letal,
+        self.tipo
+        ))

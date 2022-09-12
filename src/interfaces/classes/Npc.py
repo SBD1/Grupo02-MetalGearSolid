@@ -13,13 +13,26 @@ class NPC:
         self.nome = linha[0]
         self.qtd_vida = linha[1]
         self.uniforme = Uniforme(linha[2])
-        self.linha_arma = self.conector.select("NPCequipaArma", "*", f"idNPC = {id_npc}")
-        print(self.linha_arma)
-        time.sleep(100)
+
+        self.armasPrimarias = []
+        self.armasSecundarias = []
+        linha = self.conector.select("NPCequipaArma", "idArma", f"idNPC = {id_npc}")
+
+        for l in linha:
+            arma = Arma(l[0])
+            if arma.tipo in 'PRIMARIA':
+                self.armasPrimarias.append(arma)
+            else:
+                self.armasSecundarias.append(arma)
 
     def lista_equipamento(self):
-        print("id_npc = " + str(self.id_npc))
+        print("\tListagem NPC\n")
         print("nome = " + self.nome)
         print("qtd_vida = " + str(self.qtd_vida))
         self.uniforme.listar()
 
+        for p in self.armasPrimarias:
+            p.listar()
+
+        for s in self.armasSecundarias:
+            s.listar()
