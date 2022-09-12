@@ -48,7 +48,8 @@ def prepara_missao(player: Player, id_missao: int):
             continue
 
         elif entrada_do_jogador == 'iniciar':
-            pass
+
+            break
 
 
 def equipa_primaria(player: Player):

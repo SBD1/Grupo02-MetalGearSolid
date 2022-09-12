@@ -11,9 +11,10 @@ class Uniforme:
         self.defesa = linha[1]
 
     def listar(self):
-        print("id_uniforme = " + str(self.id_uniforme))
-        print("nome_uniforme = " + self.nome)
-        print("defesa = " + str(self.defesa))
+        print("ID #" + str(self.id_uniforme))
+        print("Nome: " + self.nome)
+        print("Defesa: " + str(self.defesa))
+        print("")
 
     def camufla(self, idTerreno):
         self.camuflagem = 0

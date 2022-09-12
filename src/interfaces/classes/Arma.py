@@ -19,9 +19,9 @@ class Arma:
 
     def listar(self):
 
-        print("id : " + str(self.id_arma))
+        print("ID #" + str(self.id_arma))
 
-        print("\nArma: {}\nDano: {}\nTotal balas: {}\nProbabilidade de Acerto: {}%\nTaxa de disparo: {}\nTamanho do pente: {}\nPenetracao: {}\nMunicao Letal: {}\nTipo da arma: {}\n".format(
+        print("Arma: {}\nDano: {}\nTotal balas: {}\nProbabilidade de Acerto: {}%\nTaxa de disparo: {}\nTamanho do pente: {}\nPenetracao: {}\nMunicao Letal: {}\nTipo da arma: {}\n".format(
         self.nome,
         self.dano,
         self.tamanho_pente,
