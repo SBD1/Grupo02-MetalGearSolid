@@ -3,6 +3,7 @@ from classes.ControlaBanco import ControlaBanco
 from classes.Arma import Arma
 from classes.Uniforme import Uniforme
 from settings import desenha_cabecalho
+from missao import comanda_mapa
 import time
 
 opcoes = '''
@@ -37,18 +38,15 @@ def prepara_missao(player: Player, id_missao: int):
         
         if entrada_do_jogador == 'primaria':
             player = equipa_primaria(player)
-            continue
 
         elif entrada_do_jogador == 'secundaria':
             player = equipa_secundaria(player)
-            continue
 
         elif entrada_do_jogador == 'uniforme':
             player = equipa_uniforme(player)
-            continue
 
         elif entrada_do_jogador == 'iniciar':
-
+            comanda_mapa(player,id_missao)
             break
 
 
