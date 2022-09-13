@@ -1,6 +1,6 @@
 INSERT INTO Missao (titulo, descricao)
 VALUES
-('Prólogo, Despertar.','Fuja do hospital.'),
+--('Prólogo, Despertar.','Fuja do hospital.'),
 ('Membros fantasmas.','Resgate o seu antigo parceiro, Kazuhira Miller. Ele foi capturado pelos soviéticos e está sendo interrogado na Ghwandai Town.'),
 ('Caminho do herói.','Elimine o comandante de destamento de Spetsnaz que está secretamente envolvido na operação Terra Queimada no Afeganistão. Esse alvo e sua unidade de reconhecimento ocuparam a vila Shago e estão preparados para enfrentar um ataque.'),
 ('Comando e controle de guerra.','Destrua os equipamentos de comunicação soviéticos para previnir o evio de pedidos de reforços entre postos avançados.'),

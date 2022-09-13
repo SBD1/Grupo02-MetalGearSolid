@@ -1,9 +1,9 @@
-INSERT INTO Objetivo (idMapa, descricao, pontoX, pontoY, tipo)
+INSERT INTO Objetivo (idMissao,idMapa, descricao, pontoX, pontoY, tipo)
 VALUES
-(2, 'Encontre Kazuhira Miller', 0, 2, 'PRINCIPAL'),
-(2, 'Extraia Kazuhira Miller', 0, 2, 'PRINCIPAL'),
-(2, 'Pegue os diamantes escondidos no quartel.', 2, 2, 'SECUNDARIO'),
-(1, 'Encontre os materiais processados.', 2, 3, 'SECUNDARIO'),
+(1,2, 'Encontre Kazuhira Miller', 0, 2, 'PRINCIPAL'),
+(1,2, 'Extraia Kazuhira Miller', 0, 2, 'PRINCIPAL'),
+(1,2, 'Pegue os diamantes escondidos no quartel.', 2, 2, 'SECUNDARIO'),
+(1,1, 'Encontre os materiais processados.', 2, 3, 'SECUNDARIO');
 
 --(3, 'Escape do hospital.', 30, 27, 'PRINCIPAL'),
 --

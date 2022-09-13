@@ -122,9 +122,11 @@ CREATE TABLE IF NOT EXISTS Mapa (
 	idMapa SERIAL PRIMARY KEY,
 	tamanho int NOT NULL,
 	nome char(50) NOT NULL,
-  	idMissao int NOT NULL,
+  idMissao int NOT NULL,
+  idTerreno int NOT NULL,
 
-  CONSTRAINT FK_idMissao_Mapa FOREIGN KEY(idMissao) REFERENCES Missao(idMissao)
+  CONSTRAINT FK_idMissao_Mapa FOREIGN KEY(idMissao) REFERENCES Missao(idMissao),
+  CONSTRAINT FK_idTerreno_Mapa FOREIGN KEY(idTerreno) REFERENCES Terreno(idTerreno)
 );
 
 CREATE TABLE IF NOT EXISTS NPC (

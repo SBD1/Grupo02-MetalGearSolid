@@ -1,9 +1,10 @@
 from novoJogo import interface_novo_jogo
 from carregaJogo import interface_carregamento_jogo
-
+from settings import desenha_cabecalho, desenha_saida
+import time
 
 def interface_exit():
-    print("Obrigado por jogar Metal Gear Solid V!")
+    desenha_saida()
     return True
 
 
@@ -23,10 +24,15 @@ ENTRADAS_ACEITAS = {
 def interface_menu_principal():
     quer_sair = False
     while not quer_sair:
+
+        time.sleep(0.3)
+        desenha_cabecalho()
+        time.sleep(0.5)
         print(MENSAGEM_MENU)
+        time.sleep(0.3)
 
         entrada_jogador = input(">> ")
         try:
             quer_sair = ENTRADAS_ACEITAS[entrada_jogador]()
         except KeyError:
-            print("Valor invalido")
+            print("Valor invalido!")

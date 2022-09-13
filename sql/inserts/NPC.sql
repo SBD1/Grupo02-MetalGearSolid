@@ -26,7 +26,7 @@ VALUES
 -- Posicionando NPCS nos mapas
 UPDATE NPC
 SET idMapa = 2, pontoX = 0,pontoY = 2
-WHERE idNPC = 1;
+WHERE nome = 'Kazuhira Miller';
 
 UPDATE NPC
 SET idMapa = 2, pontoX = 1,pontoY = 1

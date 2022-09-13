@@ -10,3 +10,4 @@
 \i docker-entrypoint-initdb.d/inserts/NPCEquipaArma.sql
 \i docker-entrypoint-initdb.d/inserts/MapaTemMapa.sql
 \i docker-entrypoint-initdb.d/inserts/MapaPosicionaRecurso.sql
+\i docker-entrypoint-initdb.d/inserts/Objetivo.sql
