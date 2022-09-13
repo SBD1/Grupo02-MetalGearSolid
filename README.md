@@ -45,11 +45,11 @@ de criação da base de dados, inserção de algumas tuplas, e procedures para a
 ## Integrantes do Grupo
 Nome | Matricula | Git
 ---- | --------- | ---
-Joao Henrique Cunha Paulino | 180033620 | JoaoHenrique12
-Laura Pinos de Oliveira | 190090901 | laurapinos
-Lucas Henrique Lima de Queiroz | 190091703 | lucasqueiroz23
-Mateus Nascimento Nobrega | 160014981 | mateusnr
-Rafael Berto Pereira | 180108344 | RafaelBP02
+Joao Henrique Cunha Paulino | 180033620 | [JoaoHenrique12](https://github.com/joaohenrique12)
+Laura Pinos de Oliveira | 190090901 | [laurapinos](https://github.com/laurapinos)
+Lucas Henrique Lima de Queiroz | 190091703 | [lucasqueiroz23](https://github.com/lucasqueiroz23)
+Mateus Nascimento Nobrega | 160014981 | [mateusnr](https://github.com/mateusnr)
+Rafael Berto Pereira | 180108344 | [RafaelBP02](https://github.com/rafaelbp02)
 
 ## Apresentação
 
