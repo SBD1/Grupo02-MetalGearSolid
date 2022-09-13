@@ -3,6 +3,7 @@ from classes.Player import Player
 from classes.Missao import Mapa
 from settings import desenha_cabecalho
 
+import time
 
 opcoes = """ Digite uma das letras indicadas para se mover no mapa
 \t N -> Norte
@@ -13,6 +14,7 @@ opcoes = """ Digite uma das letras indicadas para se mover no mapa
 
 def comanda_mapa(player: Player,id_missao):
     print("Desenha mapa")
+    time.sleep(10)
     return None
 
 #    player_pos = (0,0)

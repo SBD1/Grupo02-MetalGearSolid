@@ -28,6 +28,7 @@ class Mapa:
 
     def desenha_mapa(self):
         print(f"\t\t\t\t{self.nome}")
-        for i in range(self.tamanho):
-            for j in range(self.tamanho):
-                if
+        #for i in range(self.tamanho):
+        #    for j in range(self.tamanho):
+        #        pass
+                #if
