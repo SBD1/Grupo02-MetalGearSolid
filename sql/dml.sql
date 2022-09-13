@@ -11,3 +11,6 @@
 \i docker-entrypoint-initdb.d/inserts/MapaTemMapa.sql
 \i docker-entrypoint-initdb.d/inserts/MapaPosicionaRecurso.sql
 \i docker-entrypoint-initdb.d/inserts/Objetivo.sql
+
+insert into Estatistica values (DEFAULT, 20, 2, 2, 0, 'Raposa');
+insert into playercumpremissao values (1,1,1);
