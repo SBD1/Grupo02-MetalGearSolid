@@ -15,11 +15,11 @@ def comanda_mapa(player: Player,id_missao):
     print("Desenha mapa")
     return None
 
-    player_pos = (0,0)
-    while True:
-        desenha_cabecalho()
-        mapa = Mapa(id_missao)
-        mapa.desenha_mapa()
-        print(opcoes)
-        move = input(">> ")
-        while move
+#    player_pos = (0,0)
+#    while True:
+#        desenha_cabecalho()
+#        mapa = Mapa(id_missao)
+#        mapa.desenha_mapa()
+#        print(opcoes)
+#        move = input(">> ")
+#        while move
