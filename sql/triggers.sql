@@ -1,12 +1,20 @@
 CREATE OR REPLACE FUNCTION atualiza_playerpegaprojeto() RETURNS trigger as $atualiza_playerpegaprojeto$
 DECLARE
 	qtd_processado INTEGER;
+	idMapaProjeto INTEGER;
 BEGIN
 	select qtdProcessado into qtd_processado
 	from ProjetoConsomeRecurso where idProjeto = NEW.idProjeto;
 
 	IF qtd_processado = 0 THEN
 		NEW.concluido = true;	
+	END IF;
+
+	select idMapa from Projeto into idMapaProjeto 
+	where idProjeto = NEW.idProjeto;
+
+	if idMapaProjeto IS NULL THEN
+		NEW.encontrado = true;
 	END IF;
 
 	RETURN NEW;
